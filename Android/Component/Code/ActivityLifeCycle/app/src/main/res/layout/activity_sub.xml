@@ -8,12 +8,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is MainActivity !"/>
+        android:text="This is SubActivity !"/>
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SubActivity로 이동 !"/>
+        android:text="MainActivity로 이동 !"/>
 
 </LinearLayout>
