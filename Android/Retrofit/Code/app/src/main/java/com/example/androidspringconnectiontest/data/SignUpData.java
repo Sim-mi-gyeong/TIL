@@ -1,11 +1,11 @@
-package com.example.androidspringconnectiontest;
+package com.example.androidspringconnectiontest.data;
 
 import com.google.gson.annotations.SerializedName;
 
 /**
  * Json 데이터를 받아오는 Class
  */
-public class DTO {
+public class SignUpData {
     /**
      * SerializedName 으로 JSON 객체와 해당 변수를 매칭
      * @SerializedName 괄호 안에는 해당 JSON 객체의 변수 명 적기
@@ -20,35 +20,10 @@ public class DTO {
     @SerializedName("passwordCheck")
     private String passwordCheck;
 
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public SignUpData(String name, String id, String password, String passwordCheck) {
         this.name = name;
-    }
-
-    public String getId() {
-        return id;
-    }
-    public void setId(String id) {
         this.id = id;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getPasswordCheck() {
-        return passwordCheck;
-    }
-
-    public void setPasswordCheck(String passwordCheck) {
         this.passwordCheck = passwordCheck;
     }
 }
