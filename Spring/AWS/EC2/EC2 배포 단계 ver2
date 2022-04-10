@@ -1,0 +1,117 @@
+Last login: Sun Apr 10 21:57:09 on ttys005
+simmigyeong@simmigyeong-ui-MacBookPro ~ % cd ~/.ssh
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % ls
+SpringBoot.pem	config		known_hosts	testApp
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % vi config
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % ssh SpringBoot
+
+ssh: connect to host 3.84.71.239 port 22: Operation timed out
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % 
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % ssh SpringBoot
+
+ssh: connect to host 3.84.71.239 port 22: Operation timed out
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % 
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % vi config     
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % ssh SpringBoot
+ssh: connect to host 3.84.71.239 port 22: Operation timed out
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % ssh SpringBoot
+Last login: Sun Apr 10 11:08:02 2022 from 210.94.171.161
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+[ec2-user@ip-172-31-24-204 ~]$ ls
+app
+[ec2-user@ip-172-31-24-204 ~]$ cd app/got
+-bash: cd: app/got: No such file or directory
+[ec2-user@ip-172-31-24-204 ~]$ cd app/git
+[ec2-user@ip-172-31-24-204 git]$ ls
+SchedulerApp  deploy.sh
+[ec2-user@ip-172-31-24-204 git]$ rm SchedulerApp
+rm: cannot remove `SchedulerApp': Is a directory
+[ec2-user@ip-172-31-24-204 git]$ rm -f SchedulerApp
+rm: cannot remove `SchedulerApp': Is a directory
+[ec2-user@ip-172-31-24-204 git]$ rm -r SchedulerApp
+rm: remove write-protected 일반 파일 `SchedulerApp/.git/objects/pack/pack-eee3eb265288d6861b89857dca913d20dbab3de4.pack'? y
+rm: remove write-protected 일반 파일 `SchedulerApp/.git/objects/pack/pack-eee3eb265288d6861b89857dca913d20dbab3de4.idx'? yes
+[ec2-user@ip-172-31-24-204 git]$ ls
+deploy.sh
+[ec2-user@ip-172-31-24-204 git]$ git clone https://github.com/Sim-mi-gyeong/SchedulerApp.git
+'SchedulerApp'에 복제합니다...
+Username for 'https://github.com': Sim-mi-gyeong
+Password for 'https://Sim-mi-gyeong@github.com': 
+remote: Enumerating objects: 48, done.
+remote: Counting objects: 100% (48/48), done.
+remote: Compressing objects: 100% (33/33), done.
+remote: Total 48 (delta 8), reused 42 (delta 5), pack-reused 0
+오브젝트를 받는 중: 100% (48/48), 62.37 KiB | 12.47 MiB/s, 완료.
+델타를 알아내는 중: 100% (8/8), 완료.
+[ec2-user@ip-172-31-24-204 git]$ cd SchedulerApp
+[ec2-user@ip-172-31-24-204 SchedulerApp]$ ls -al
+합계 8
+drwxrwxr-x 4 ec2-user ec2-user  88  4월 10 16:31 .
+drwxrwxr-x 3 ec2-user ec2-user  43  4월 10 16:30 ..
+drwxrwxr-x 8 ec2-user ec2-user 163  4월 10 16:31 .git
+-rw-rw-r-- 1 ec2-user ec2-user 278  4월 10 16:31 .gitignore
+-rw-rw-r-- 1 ec2-user ec2-user  14  4월 10 16:31 README.md
+drwxrwxr-x 4 ec2-user ec2-user 126  4월 10 16:31 SchedulerAppTest_Springboot
+[ec2-user@ip-172-31-24-204 SchedulerApp]$ cd ..
+[ec2-user@ip-172-31-24-204 git]$ cd SchedulerApp
+[ec2-user@ip-172-31-24-204 SchedulerApp]$ vi deploy.sh
+
+client_loop: send disconnect: Broken pipe
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % ㅑ
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
