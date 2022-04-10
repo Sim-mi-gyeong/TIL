@@ -35,11 +35,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         TextView signUpText = (TextView) findViewById(R.id.signUpText);
-        EditText name = (EditText) findViewById(R.id.name);
-        EditText id = (EditText) findViewById(R.id.id);   // email 형태 : AutoCompleteTextView
-        EditText password = (EditText) findViewById(R.id.password);
-        EditText passwordCheck = (EditText) findViewById(R.id.passwordCheck);
-        Button signUpButton = (Button) findViewById(R.id.signUpButton);
+        name = (EditText) findViewById(R.id.name);
+        id = (EditText) findViewById(R.id.id);   // email 형태 : AutoCompleteTextView
+        password = (EditText) findViewById(R.id.password);
+        passwordCheck = (EditText) findViewById(R.id.passwordCheck);
+        signUpButton = (Button) findViewById(R.id.signUpButton);
 
         service = RetrofitClient.getClient().create(RetrofitService.class);
 
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    // 아이디 유효성 검사가 필요한 부분
+    // 유효성 검사 및 회원가입 메서드 호
     private void attemptSignUp() {
         name.setError(null);
         id.setError(null);
@@ -82,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // 비밀번호 유효성 검사
-        // 패스워드의 유효성 검사
         if (passwordText.isEmpty()) {
             password.setError("비밀번호를 입력해주세요.");
             focusView = password;
