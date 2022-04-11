@@ -22,6 +22,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TextView signUpText;
     private EditText name;
     private EditText id;
     private EditText password;
@@ -34,12 +35,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView signUpText = (TextView) findViewById(R.id.signUpText);
-        name = (EditText) findViewById(R.id.name);
-        id = (EditText) findViewById(R.id.id);   // email 형태 : AutoCompleteTextView
-        password = (EditText) findViewById(R.id.password);
-        passwordCheck = (EditText) findViewById(R.id.passwordCheck);
-        signUpButton = (Button) findViewById(R.id.signUpButton);
+        signUpText = findViewById(R.id.signUpText);
+        name = findViewById(R.id.name);
+        id = findViewById(R.id.id);   // email 형태 : AutoCompleteTextView
+        password = findViewById(R.id.password);
+        passwordCheck = findViewById(R.id.passwordCheck);
+        signUpButton =  findViewById(R.id.signUpButton);
 
         service = RetrofitClient.getClient().create(RetrofitService.class);
 
