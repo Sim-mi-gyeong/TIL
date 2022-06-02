@@ -12,4 +12,5 @@ public interface RetrofitService {
     @POST("/user/signup")
     Call<SignUpResponse> userSignUp(@Body SignUpData data);
 //    fun getLoginResponse(@Body user : Map<String, String>): Call<String>
+
 }

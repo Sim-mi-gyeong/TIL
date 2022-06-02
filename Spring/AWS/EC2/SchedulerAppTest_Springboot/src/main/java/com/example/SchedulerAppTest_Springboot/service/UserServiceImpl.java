@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService{
         userRepository.save(user);
         userSignUpResponse.setCode(200);
         userSignUpResponse.setMessage("회원가입 성공");
-        return user.getItentity();
+        return user.getIdentity();
     }
 
     public void validateDuplicateUser(User user) {
