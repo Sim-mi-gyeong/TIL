@@ -1,0 +1,1201 @@
+Last login: Sun Apr 10 17:33:55 on ttys004
+simmigyeong@simmigyeong-ui-MacBookPro ~ % cd /Users/simmigyeong/Documents/GitHub/TIL/Spring/AWS/EC2
+simmigyeong@simmigyeong-ui-MacBookPro EC2 % cp SpringBoot.pem ~/.ssh
+simmigyeong@simmigyeong-ui-MacBookPro EC2 % ls
+SpringBoot.pem
+simmigyeong@simmigyeong-ui-MacBookPro EC2 % cd ~/.ssh
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % ls
+SpringBoot.pem	known_hosts
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % pwd
+/Users/simmigyeong/.ssh
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % ls -l
+total 16
+-rw-r--r--@ 1 simmigyeong  staff  1704  4 10 17:34 SpringBoot.pem
+-rw-r--r--  1 simmigyeong  staff   228 10 13 15:58 known_hosts
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % chmod 600 ./SpringBoot.pem
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % ls -l
+total 16
+-rw-------@ 1 simmigyeong  staff  1704  4 10 17:34 SpringBoot.pem
+-rw-r--r--  1 simmigyeong  staff   228 10 13 15:58 known_hosts
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % vi config OR vim config
+4 files to edit
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % ls
+SpringBoot.pem	config		known_hosts
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % ssh SpringBoot
+The authenticity of host '3.84.71.239 (3.84.71.239)' can't be established.
+ECDSA key fingerprint is SHA256:ztILM9crvk/t86N1XODNYdAgwa+Big3WoRdALylYKeQ.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? no
+Host key verification failed.
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % ssh SpringBoot
+The authenticity of host '3.84.71.239 (3.84.71.239)' can't be established.
+ECDSA key fingerprint is SHA256:ztILM9crvk/t86N1XODNYdAgwa+Big3WoRdALylYKeQ.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '3.84.71.239' (ECDSA) to the list of known hosts.
+ec2-admin@3.84.71.239: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % chmod 600 ./SpringBoot.pem
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % ls -l
+total 24
+-rw-------@ 1 simmigyeong  staff  1704  4 10 17:34 SpringBoot.pem
+-rw-r--r--  1 simmigyeong  staff   115  4 10 17:39 config
+-rw-r--r--  1 simmigyeong  staff   401  4 10 17:40 known_hosts
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % ssh SpringBoot
+ec2-admin@3.84.71.239: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % vi config OR vim config   
+4 files to edit
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % ssh SpringBoot         
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+14 package(s) needed for security, out of 17 available
+Run "sudo yum update" to apply all updates.
+[ec2-user@ip-172-31-24-204 ~]$ sudo yum update
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+amzn2-core                                                                                         | 3.7 kB  00:00:00     
+Resolving Dependencies
+--> Running transaction check
+---> Package amazon-ssm-agent.x86_64 0:3.0.1124.0-1.amzn2 will be updated
+---> Package amazon-ssm-agent.x86_64 0:3.1.1188.0-1.amzn2 will be an update
+---> Package ec2-net-utils.noarch 0:1.6-1.amzn2 will be obsoleted
+---> Package ec2-net-utils.noarch 0:1.6.1-2.amzn2 will be obsoleting
+---> Package glibc.x86_64 0:2.26-57.amzn2 will be updated
+---> Package glibc.x86_64 0:2.26-58.amzn2 will be an update
+---> Package glibc-all-langpacks.x86_64 0:2.26-57.amzn2 will be updated
+---> Package glibc-all-langpacks.x86_64 0:2.26-58.amzn2 will be an update
+---> Package glibc-common.x86_64 0:2.26-57.amzn2 will be updated
+---> Package glibc-common.x86_64 0:2.26-58.amzn2 will be an update
+---> Package glibc-locale-source.x86_64 0:2.26-57.amzn2 will be updated
+---> Package glibc-locale-source.x86_64 0:2.26-58.amzn2 will be an update
+---> Package glibc-minimal-langpack.x86_64 0:2.26-57.amzn2 will be updated
+---> Package glibc-minimal-langpack.x86_64 0:2.26-58.amzn2 will be an update
+---> Package kernel.x86_64 0:4.14.273-207.502.amzn2 will be installed
+---> Package libcrypt.x86_64 0:2.26-57.amzn2 will be updated
+---> Package libcrypt.x86_64 0:2.26-58.amzn2 will be an update
+---> Package libgcrypt.x86_64 0:1.5.3-14.amzn2.0.2 will be updated
+---> Package libgcrypt.x86_64 0:1.5.3-14.amzn2.0.3 will be an update
+---> Package openldap.x86_64 0:2.4.44-23.amzn2.0.2 will be updated
+---> Package openldap.x86_64 0:2.4.44-23.amzn2.0.3 will be an update
+---> Package sysctl-defaults.noarch 0:1.0-2.amzn2 will be updated
+---> Package sysctl-defaults.noarch 0:1.0-3.amzn2 will be an update
+---> Package vim-common.x86_64 2:8.2.4314-1.amzn2.0.1 will be updated
+---> Package vim-common.x86_64 2:8.2.4428-1.amzn2.0.3 will be an update
+---> Package vim-data.noarch 2:8.2.4314-1.amzn2.0.1 will be updated
+---> Package vim-data.noarch 2:8.2.4428-1.amzn2.0.3 will be an update
+---> Package vim-enhanced.x86_64 2:8.2.4314-1.amzn2.0.1 will be updated
+---> Package vim-enhanced.x86_64 2:8.2.4428-1.amzn2.0.3 will be an update
+---> Package vim-filesystem.noarch 2:8.2.4314-1.amzn2.0.1 will be updated
+---> Package vim-filesystem.noarch 2:8.2.4428-1.amzn2.0.3 will be an update
+---> Package vim-minimal.x86_64 2:8.2.4314-1.amzn2.0.1 will be updated
+---> Package vim-minimal.x86_64 2:8.2.4428-1.amzn2.0.3 will be an update
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+==========================================================================================================================
+ Package                            Arch               Version                               Repository              Size
+==========================================================================================================================
+Installing:
+ ec2-net-utils                      noarch             1.6.1-2.amzn2                         amzn2-core              20 k
+     replacing  ec2-net-utils.noarch 1.6-1.amzn2
+ kernel                             x86_64             4.14.273-207.502.amzn2                amzn2-core              21 M
+Updating:
+ amazon-ssm-agent                   x86_64             3.1.1188.0-1.amzn2                    amzn2-core              27 M
+ glibc                              x86_64             2.26-58.amzn2                         amzn2-core             3.4 M
+ glibc-all-langpacks                x86_64             2.26-58.amzn2                         amzn2-core             7.0 M
+ glibc-common                       x86_64             2.26-58.amzn2                         amzn2-core             773 k
+ glibc-locale-source                x86_64             2.26-58.amzn2                         amzn2-core             3.2 M
+ glibc-minimal-langpack             x86_64             2.26-58.amzn2                         amzn2-core              32 k
+ libcrypt                           x86_64             2.26-58.amzn2                         amzn2-core              52 k
+ libgcrypt                          x86_64             1.5.3-14.amzn2.0.3                    amzn2-core             265 k
+ openldap                           x86_64             2.4.44-23.amzn2.0.3                   amzn2-core             351 k
+ sysctl-defaults                    noarch             1.0-3.amzn2                           amzn2-core             3.9 k
+ vim-common                         x86_64             2:8.2.4428-1.amzn2.0.3                amzn2-core             7.3 M
+ vim-data                           noarch             2:8.2.4428-1.amzn2.0.3                amzn2-core              74 k
+ vim-enhanced                       x86_64             2:8.2.4428-1.amzn2.0.3                amzn2-core             1.6 M
+ vim-filesystem                     noarch             2:8.2.4428-1.amzn2.0.3                amzn2-core              69 k
+ vim-minimal                        x86_64             2:8.2.4428-1.amzn2.0.3                amzn2-core             678 k
+
+Transaction Summary
+==========================================================================================================================
+Install   2 Packages
+Upgrade  15 Packages
+
+Total download size: 73 M
+Is this ok [y/d/N]: y
+Downloading packages:
+Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+(1/17): ec2-net-utils-1.6.1-2.amzn2.noarch.rpm                                                     |  20 kB  00:00:00     
+(2/17): glibc-2.26-58.amzn2.x86_64.rpm                                                             | 3.4 MB  00:00:00     
+(3/17): glibc-all-langpacks-2.26-58.amzn2.x86_64.rpm                                               | 7.0 MB  00:00:00     
+(4/17): amazon-ssm-agent-3.1.1188.0-1.amzn2.x86_64.rpm                                             |  27 MB  00:00:00     
+(5/17): glibc-common-2.26-58.amzn2.x86_64.rpm                                                      | 773 kB  00:00:00     
+(6/17): glibc-minimal-langpack-2.26-58.amzn2.x86_64.rpm                                            |  32 kB  00:00:00     
+(7/17): glibc-locale-source-2.26-58.amzn2.x86_64.rpm                                               | 3.2 MB  00:00:00     
+(8/17): libcrypt-2.26-58.amzn2.x86_64.rpm                                                          |  52 kB  00:00:00     
+(9/17): libgcrypt-1.5.3-14.amzn2.0.3.x86_64.rpm                                                    | 265 kB  00:00:00     
+(10/17): openldap-2.4.44-23.amzn2.0.3.x86_64.rpm                                                   | 351 kB  00:00:00     
+(11/17): sysctl-defaults-1.0-3.amzn2.noarch.rpm                                                    | 3.9 kB  00:00:00     
+(12/17): kernel-4.14.273-207.502.amzn2.x86_64.rpm                                                  |  21 MB  00:00:00     
+(13/17): vim-common-8.2.4428-1.amzn2.0.3.x86_64.rpm                                                | 7.3 MB  00:00:00     
+(14/17): vim-data-8.2.4428-1.amzn2.0.3.noarch.rpm                                                  |  74 kB  00:00:00     
+(15/17): vim-filesystem-8.2.4428-1.amzn2.0.3.noarch.rpm                                            |  69 kB  00:00:00     
+(16/17): vim-enhanced-8.2.4428-1.amzn2.0.3.x86_64.rpm                                              | 1.6 MB  00:00:00     
+(17/17): vim-minimal-8.2.4428-1.amzn2.0.3.x86_64.rpm                                               | 678 kB  00:00:00     
+--------------------------------------------------------------------------------------------------------------------------
+Total                                                                                      60 MB/s |  73 MB  00:00:01     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Updating   : 2:vim-data-8.2.4428-1.amzn2.0.3.noarch                                                                1/33 
+  Updating   : glibc-common-2.26-58.amzn2.x86_64                                                                     2/33 
+  Updating   : glibc-2.26-58.amzn2.x86_64                                                                            3/33 
+  Updating   : glibc-minimal-langpack-2.26-58.amzn2.x86_64                                                           4/33 
+  Updating   : 2:vim-filesystem-8.2.4428-1.amzn2.0.3.noarch                                                          5/33 
+  Updating   : 2:vim-common-8.2.4428-1.amzn2.0.3.x86_64                                                              6/33 
+  Updating   : 2:vim-enhanced-8.2.4428-1.amzn2.0.3.x86_64                                                            7/33 
+  Updating   : 2:vim-minimal-8.2.4428-1.amzn2.0.3.x86_64                                                             8/33 
+  Updating   : openldap-2.4.44-23.amzn2.0.3.x86_64                                                                   9/33 
+  Updating   : glibc-locale-source-2.26-58.amzn2.x86_64                                                             10/33 
+  Updating   : libgcrypt-1.5.3-14.amzn2.0.3.x86_64                                                                  11/33 
+  Updating   : glibc-all-langpacks-2.26-58.amzn2.x86_64                                                             12/33 
+  Updating   : libcrypt-2.26-58.amzn2.x86_64                                                                        13/33 
+  Installing : ec2-net-utils-1.6.1-2.amzn2.noarch                                                                   14/33 
+  Updating   : amazon-ssm-agent-3.1.1188.0-1.amzn2.x86_64                                                           15/33 
+  Installing : kernel-4.14.273-207.502.amzn2.x86_64                                                                           16/33 
+  Updating   : sysctl-defaults-1.0-3.amzn2.noarch                                                                             17/33 
+  Cleanup    : glibc-all-langpacks-2.26-57.amzn2.x86_64                                                                       18/33 
+  Cleanup    : glibc-locale-source-2.26-57.amzn2.x86_64                                                                       19/33 
+  Cleanup    : 2:vim-enhanced-8.2.4314-1.amzn2.0.1.x86_64                                                                     20/33 
+  Cleanup    : 2:vim-common-8.2.4314-1.amzn2.0.1.x86_64                                                                       21/33 
+  Cleanup    : 2:vim-minimal-8.2.4314-1.amzn2.0.1.x86_64                                                                      22/33 
+  Cleanup    : libcrypt-2.26-57.amzn2.x86_64                                                                                  23/33 
+  Cleanup    : libgcrypt-1.5.3-14.amzn2.0.2.x86_64                                                                            24/33 
+  Cleanup    : openldap-2.4.44-23.amzn2.0.2.x86_64                                                                            25/33 
+  Cleanup    : 2:vim-data-8.2.4314-1.amzn2.0.1.noarch                                                                         26/33 
+  Cleanup    : 2:vim-filesystem-8.2.4314-1.amzn2.0.1.noarch                                                                   27/33 
+  Cleanup    : ec2-net-utils-1.6-1.amzn2.noarch                                                                               28/33 
+  Cleanup    : amazon-ssm-agent-3.0.1124.0-1.amzn2.x86_64                                                                     29/33 
+  Cleanup    : sysctl-defaults-1.0-2.amzn2.noarch                                                                             30/33 
+  Cleanup    : glibc-common-2.26-57.amzn2.x86_64                                                                              31/33 
+  Cleanup    : glibc-minimal-langpack-2.26-57.amzn2.x86_64                                                                    32/33 
+  Cleanup    : glibc-2.26-57.amzn2.x86_64                                                                                     33/33 
+  Verifying  : 2:vim-minimal-8.2.4428-1.amzn2.0.3.x86_64                                                                       1/33 
+  Verifying  : 2:vim-data-8.2.4428-1.amzn2.0.3.noarch                                                                          2/33 
+  Verifying  : 2:vim-filesystem-8.2.4428-1.amzn2.0.3.noarch                                                                    3/33 
+  Verifying  : openldap-2.4.44-23.amzn2.0.3.x86_64                                                                             4/33 
+  Verifying  : sysctl-defaults-1.0-3.amzn2.noarch                                                                              5/33 
+  Verifying  : glibc-minimal-langpack-2.26-58.amzn2.x86_64                                                                     6/33 
+  Verifying  : glibc-locale-source-2.26-58.amzn2.x86_64                                                                        7/33 
+  Verifying  : libgcrypt-1.5.3-14.amzn2.0.3.x86_64                                                                             8/33 
+  Verifying  : glibc-all-langpacks-2.26-58.amzn2.x86_64                                                                        9/33 
+  Verifying  : 2:vim-common-8.2.4428-1.amzn2.0.3.x86_64                                                                       10/33 
+  Verifying  : kernel-4.14.273-207.502.amzn2.x86_64                                                                           11/33 
+  Verifying  : glibc-common-2.26-58.amzn2.x86_64                                                                              12/33 
+  Verifying  : amazon-ssm-agent-3.1.1188.0-1.amzn2.x86_64                                                                     13/33 
+  Verifying  : ec2-net-utils-1.6.1-2.amzn2.noarch                                                                             14/33 
+  Verifying  : 2:vim-enhanced-8.2.4428-1.amzn2.0.3.x86_64                                                                     15/33 
+  Verifying  : libcrypt-2.26-58.amzn2.x86_64                                                                                  16/33 
+  Verifying  : glibc-2.26-58.amzn2.x86_64                                                                                     17/33 
+  Verifying  : 2:vim-enhanced-8.2.4314-1.amzn2.0.1.x86_64                                                                     18/33 
+  Verifying  : 2:vim-minimal-8.2.4314-1.amzn2.0.1.x86_64                                                                      19/33 
+  Verifying  : libgcrypt-1.5.3-14.amzn2.0.2.x86_64                                                                            20/33 
+  Verifying  : ec2-net-utils-1.6-1.amzn2.noarch                                                                               21/33 
+  Verifying  : glibc-all-langpacks-2.26-57.amzn2.x86_64                                                                       22/33 
+  Verifying  : 2:vim-data-8.2.4314-1.amzn2.0.1.noarch                                                                         23/33 
+  Verifying  : 2:vim-common-8.2.4314-1.amzn2.0.1.x86_64                                                                       24/33 
+  Verifying  : glibc-minimal-langpack-2.26-57.amzn2.x86_64                                                                    25/33 
+  Verifying  : amazon-ssm-agent-3.0.1124.0-1.amzn2.x86_64                                                                     26/33 
+  Verifying  : sysctl-defaults-1.0-2.amzn2.noarch                                                                             27/33 
+  Verifying  : 2:vim-filesystem-8.2.4314-1.amzn2.0.1.noarch                                                                   28/33 
+  Verifying  : libcrypt-2.26-57.amzn2.x86_64                                                                                  29/33 
+  Verifying  : glibc-common-2.26-57.amzn2.x86_64                                                                              30/33 
+  Verifying  : openldap-2.4.44-23.amzn2.0.2.x86_64                                                                            31/33 
+  Verifying  : glibc-locale-source-2.26-57.amzn2.x86_64                                                                       32/33 
+  Verifying  : glibc-2.26-57.amzn2.x86_64                                                                                     33/33 
+
+Installed:
+  ec2-net-utils.noarch 0:1.6.1-2.amzn2                            kernel.x86_64 0:4.14.273-207.502.amzn2                           
+
+Updated:
+  amazon-ssm-agent.x86_64 0:3.1.1188.0-1.amzn2                     glibc.x86_64 0:2.26-58.amzn2                                     
+  glibc-all-langpacks.x86_64 0:2.26-58.amzn2                       glibc-common.x86_64 0:2.26-58.amzn2                              
+  glibc-locale-source.x86_64 0:2.26-58.amzn2                       glibc-minimal-langpack.x86_64 0:2.26-58.amzn2                    
+  libcrypt.x86_64 0:2.26-58.amzn2                                  libgcrypt.x86_64 0:1.5.3-14.amzn2.0.3                            
+  openldap.x86_64 0:2.4.44-23.amzn2.0.3                            sysctl-defaults.noarch 0:1.0-3.amzn2                             
+  vim-common.x86_64 2:8.2.4428-1.amzn2.0.3                         vim-data.noarch 2:8.2.4428-1.amzn2.0.3                           
+  vim-enhanced.x86_64 2:8.2.4428-1.amzn2.0.3                       vim-filesystem.noarch 2:8.2.4428-1.amzn2.0.3                     
+  vim-minimal.x86_64 2:8.2.4428-1.amzn2.0.3                       
+
+Replaced:
+  ec2-net-utils.noarch 0:1.6-1.amzn2                                                                                                
+
+Complete!
+[ec2-user@ip-172-31-24-204 ~]$ sudo yum install -y java-1.8.0-openjdk-devel.x86_64
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+amzn2-core                                                                                                   | 3.7 kB  00:00:00     
+Resolving Dependencies
+--> Running transaction check
+---> Package java-1.8.0-openjdk-devel.x86_64 1:1.8.0.312.b07-1.amzn2.0.2 will be installed
+--> Processing Dependency: java-1.8.0-openjdk(x86-64) = 1:1.8.0.312.b07-1.amzn2.0.2 for package: 1:java-1.8.0-openjdk-devel-1.8.0.312.b07-1.amzn2.0.2.x86_64
+--> Processing Dependency: libjvm.so()(64bit) for package: 1:java-1.8.0-openjdk-devel-1.8.0.312.b07-1.amzn2.0.2.x86_64
+--> Processing Dependency: libjava.so()(64bit) for package: 1:java-1.8.0-openjdk-devel-1.8.0.312.b07-1.amzn2.0.2.x86_64
+--> Processing Dependency: libX11.so.6()(64bit) for package: 1:java-1.8.0-openjdk-devel-1.8.0.312.b07-1.amzn2.0.2.x86_64
+--> Running transaction check
+---> Package java-1.8.0-openjdk.x86_64 1:1.8.0.312.b07-1.amzn2.0.2 will be installed
+--> Processing Dependency: xorg-x11-fonts-Type1 for package: 1:java-1.8.0-openjdk-1.8.0.312.b07-1.amzn2.0.2.x86_64
+--> Processing Dependency: libasound.so.2(ALSA_0.9.0rc4)(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.312.b07-1.amzn2.0.2.x86_64
+--> Processing Dependency: libasound.so.2(ALSA_0.9)(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.312.b07-1.amzn2.0.2.x86_64
+--> Processing Dependency: libXcomposite(x86-64) for package: 1:java-1.8.0-openjdk-1.8.0.312.b07-1.amzn2.0.2.x86_64
+--> Processing Dependency: gtk2(x86-64) for package: 1:java-1.8.0-openjdk-1.8.0.312.b07-1.amzn2.0.2.x86_64
+--> Processing Dependency: fontconfig(x86-64) for package: 1:java-1.8.0-openjdk-1.8.0.312.b07-1.amzn2.0.2.x86_64
+--> Processing Dependency: libgif.so.4()(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.312.b07-1.amzn2.0.2.x86_64
+--> Processing Dependency: libasound.so.2()(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.312.b07-1.amzn2.0.2.x86_64
+--> Processing Dependency: libXtst.so.6()(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.312.b07-1.amzn2.0.2.x86_64
+--> Processing Dependency: libXrender.so.1()(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.312.b07-1.amzn2.0.2.x86_64
+--> Processing Dependency: libXi.so.6()(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.312.b07-1.amzn2.0.2.x86_64
+--> Processing Dependency: libXext.so.6()(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.312.b07-1.amzn2.0.2.x86_64
+---> Package java-1.8.0-openjdk-headless.x86_64 1:1.8.0.312.b07-1.amzn2.0.2 will be installed
+--> Processing Dependency: tzdata-java >= 2021a for package: 1:java-1.8.0-openjdk-headless-1.8.0.312.b07-1.amzn2.0.2.x86_64
+--> Processing Dependency: copy-jdk-configs >= 3.3 for package: 1:java-1.8.0-openjdk-headless-1.8.0.312.b07-1.amzn2.0.2.x86_64
+--> Processing Dependency: pcsc-lite-libs(x86-64) for package: 1:java-1.8.0-openjdk-headless-1.8.0.312.b07-1.amzn2.0.2.x86_64
+--> Processing Dependency: log4j-cve-2021-44228-cve-mitigations for package: 1:java-1.8.0-openjdk-headless-1.8.0.312.b07-1.amzn2.0.2.x86_64
+--> Processing Dependency: lksctp-tools(x86-64) for package: 1:java-1.8.0-openjdk-headless-1.8.0.312.b07-1.amzn2.0.2.x86_64
+--> Processing Dependency: jpackage-utils for package: 1:java-1.8.0-openjdk-headless-1.8.0.312.b07-1.amzn2.0.2.x86_64
+--> Processing Dependency: cups-libs(x86-64) for package: 1:java-1.8.0-openjdk-headless-1.8.0.312.b07-1.amzn2.0.2.x86_64
+---> Package libX11.x86_64 0:1.6.7-3.amzn2.0.2 will be installed
+--> Processing Dependency: libX11-common >= 1.6.7-3.amzn2.0.2 for package: libX11-1.6.7-3.amzn2.0.2.x86_64
+--> Processing Dependency: libxcb.so.1()(64bit) for package: libX11-1.6.7-3.amzn2.0.2.x86_64
+--> Running transaction check
+---> Package alsa-lib.x86_64 0:1.1.4.1-2.amzn2 will be installed
+---> Package copy-jdk-configs.noarch 0:3.3-10.amzn2 will be installed
+---> Package cups-libs.x86_64 1:1.6.3-51.amzn2 will be installed
+--> Processing Dependency: libavahi-common.so.3()(64bit) for package: 1:cups-libs-1.6.3-51.amzn2.x86_64
+--> Processing Dependency: libavahi-client.so.3()(64bit) for package: 1:cups-libs-1.6.3-51.amzn2.x86_64
+---> Package fontconfig.x86_64 0:2.13.0-4.3.amzn2 will be installed
+--> Processing Dependency: fontpackages-filesystem for package: fontconfig-2.13.0-4.3.amzn2.x86_64
+--> Processing Dependency: dejavu-sans-fonts for package: fontconfig-2.13.0-4.3.amzn2.x86_64
+---> Package giflib.x86_64 0:4.1.6-9.amzn2.0.2 will be installed
+--> Processing Dependency: libSM.so.6()(64bit) for package: giflib-4.1.6-9.amzn2.0.2.x86_64
+--> Processing Dependency: libICE.so.6()(64bit) for package: giflib-4.1.6-9.amzn2.0.2.x86_64
+---> Package gtk2.x86_64 0:2.24.31-1.amzn2.0.2 will be installed
+--> Processing Dependency: pango >= 1.20.0-1 for package: gtk2-2.24.31-1.amzn2.0.2.x86_64
+--> Processing Dependency: libXrandr >= 1.2.99.4-2 for package: gtk2-2.24.31-1.amzn2.0.2.x86_64
+--> Processing Dependency: atk >= 1.29.4-2 for package: gtk2-2.24.31-1.amzn2.0.2.x86_64
+--> Processing Dependency: hicolor-icon-theme for package: gtk2-2.24.31-1.amzn2.0.2.x86_64
+--> Processing Dependency: gtk-update-icon-cache for package: gtk2-2.24.31-1.amzn2.0.2.x86_64
+--> Processing Dependency: libpangoft2-1.0.so.0()(64bit) for package: gtk2-2.24.31-1.amzn2.0.2.x86_64
+--> Processing Dependency: libpangocairo-1.0.so.0()(64bit) for package: gtk2-2.24.31-1.amzn2.0.2.x86_64
+--> Processing Dependency: libpango-1.0.so.0()(64bit) for package: gtk2-2.24.31-1.amzn2.0.2.x86_64
+--> Processing Dependency: libgdk_pixbuf-2.0.so.0()(64bit) for package: gtk2-2.24.31-1.amzn2.0.2.x86_64
+--> Processing Dependency: libcairo.so.2()(64bit) for package: gtk2-2.24.31-1.amzn2.0.2.x86_64
+--> Processing Dependency: libatk-1.0.so.0()(64bit) for package: gtk2-2.24.31-1.amzn2.0.2.x86_64
+--> Processing Dependency: libXrandr.so.2()(64bit) for package: gtk2-2.24.31-1.amzn2.0.2.x86_64
+--> Processing Dependency: libXinerama.so.1()(64bit) for package: gtk2-2.24.31-1.amzn2.0.2.x86_64
+--> Processing Dependency: libXfixes.so.3()(64bit) for package: gtk2-2.24.31-1.amzn2.0.2.x86_64
+--> Processing Dependency: libXdamage.so.1()(64bit) for package: gtk2-2.24.31-1.amzn2.0.2.x86_64
+--> Processing Dependency: libXcursor.so.1()(64bit) for package: gtk2-2.24.31-1.amzn2.0.2.x86_64
+---> Package javapackages-tools.noarch 0:3.4.1-11.amzn2 will be installed
+--> Processing Dependency: python-javapackages = 3.4.1-11.amzn2 for package: javapackages-tools-3.4.1-11.amzn2.noarch
+--> Processing Dependency: libxslt for package: javapackages-tools-3.4.1-11.amzn2.noarch
+---> Package libX11-common.noarch 0:1.6.7-3.amzn2.0.2 will be installed
+---> Package libXcomposite.x86_64 0:0.4.4-4.1.amzn2.0.2 will be installed
+---> Package libXext.x86_64 0:1.3.3-3.amzn2.0.2 will be installed
+---> Package libXi.x86_64 0:1.7.9-1.amzn2.0.2 will be installed
+---> Package libXrender.x86_64 0:0.9.10-1.amzn2.0.2 will be installed
+---> Package libXtst.x86_64 0:1.2.3-1.amzn2.0.2 will be installed
+---> Package libxcb.x86_64 0:1.12-1.amzn2.0.2 will be installed
+--> Processing Dependency: libXau.so.6()(64bit) for package: libxcb-1.12-1.amzn2.0.2.x86_64
+---> Package lksctp-tools.x86_64 0:1.0.17-2.amzn2.0.2 will be installed
+---> Package log4j-cve-2021-44228-hotpatch.noarch 0:1.1-13.amzn2 will be installed
+---> Package pcsc-lite-libs.x86_64 0:1.8.8-7.amzn2 will be installed
+---> Package tzdata-java.noarch 0:2021e-1.amzn2 will be installed
+---> Package xorg-x11-fonts-Type1.noarch 0:7.5-9.amzn2 will be installed
+--> Processing Dependency: ttmkfdir for package: xorg-x11-fonts-Type1-7.5-9.amzn2.noarch
+--> Processing Dependency: ttmkfdir for package: xorg-x11-fonts-Type1-7.5-9.amzn2.noarch
+--> Processing Dependency: mkfontdir for package: xorg-x11-fonts-Type1-7.5-9.amzn2.noarch
+--> Processing Dependency: mkfontdir for package: xorg-x11-fonts-Type1-7.5-9.amzn2.noarch
+--> Running transaction check
+---> Package atk.x86_64 0:2.22.0-3.amzn2.0.2 will be installed
+---> Package avahi-libs.x86_64 0:0.6.31-20.amzn2 will be installed
+---> Package cairo.x86_64 0:1.15.12-4.amzn2 will be installed
+--> Processing Dependency: libpixman-1.so.0()(64bit) for package: cairo-1.15.12-4.amzn2.x86_64
+--> Processing Dependency: libGL.so.1()(64bit) for package: cairo-1.15.12-4.amzn2.x86_64
+--> Processing Dependency: libEGL.so.1()(64bit) for package: cairo-1.15.12-4.amzn2.x86_64
+---> Package dejavu-sans-fonts.noarch 0:2.33-6.amzn2 will be installed
+--> Processing Dependency: dejavu-fonts-common = 2.33-6.amzn2 for package: dejavu-sans-fonts-2.33-6.amzn2.noarch
+---> Package fontpackages-filesystem.noarch 0:1.44-8.amzn2 will be installed
+---> Package gdk-pixbuf2.x86_64 0:2.36.12-3.amzn2 will be installed
+--> Processing Dependency: libjasper.so.1()(64bit) for package: gdk-pixbuf2-2.36.12-3.amzn2.x86_64
+---> Package gtk-update-icon-cache.x86_64 0:3.22.30-3.amzn2 will be installed
+---> Package hicolor-icon-theme.noarch 0:0.12-7.amzn2 will be installed
+---> Package libICE.x86_64 0:1.0.9-9.amzn2.0.2 will be installed
+---> Package libSM.x86_64 0:1.2.2-2.amzn2.0.2 will be installed
+---> Package libXau.x86_64 0:1.0.8-2.1.amzn2.0.2 will be installed
+---> Package libXcursor.x86_64 0:1.1.15-1.amzn2 will be installed
+---> Package libXdamage.x86_64 0:1.1.4-4.1.amzn2.0.2 will be installed
+---> Package libXfixes.x86_64 0:5.0.3-1.amzn2.0.2 will be installed
+---> Package libXinerama.x86_64 0:1.1.3-2.1.amzn2.0.2 will be installed
+---> Package libXrandr.x86_64 0:1.5.1-2.amzn2.0.3 will be installed
+---> Package libxslt.x86_64 0:1.1.28-6.amzn2 will be installed
+---> Package pango.x86_64 0:1.42.4-4.amzn2 will be installed
+--> Processing Dependency: libthai(x86-64) >= 0.1.9 for package: pango-1.42.4-4.amzn2.x86_64
+--> Processing Dependency: libXft(x86-64) >= 2.0.0 for package: pango-1.42.4-4.amzn2.x86_64
+--> Processing Dependency: harfbuzz(x86-64) >= 1.4.2 for package: pango-1.42.4-4.amzn2.x86_64
+--> Processing Dependency: fribidi(x86-64) >= 1.0 for package: pango-1.42.4-4.amzn2.x86_64
+--> Processing Dependency: libthai.so.0(LIBTHAI_0.1)(64bit) for package: pango-1.42.4-4.amzn2.x86_64
+--> Processing Dependency: libthai.so.0()(64bit) for package: pango-1.42.4-4.amzn2.x86_64
+--> Processing Dependency: libharfbuzz.so.0()(64bit) for package: pango-1.42.4-4.amzn2.x86_64
+--> Processing Dependency: libfribidi.so.0()(64bit) for package: pango-1.42.4-4.amzn2.x86_64
+--> Processing Dependency: libXft.so.2()(64bit) for package: pango-1.42.4-4.amzn2.x86_64
+---> Package python-javapackages.noarch 0:3.4.1-11.amzn2 will be installed
+--> Processing Dependency: python-lxml for package: python-javapackages-3.4.1-11.amzn2.noarch
+---> Package ttmkfdir.x86_64 0:3.0.9-42.amzn2.0.2 will be installed
+---> Package xorg-x11-font-utils.x86_64 1:7.5-21.amzn2 will be installed
+--> Processing Dependency: libfontenc.so.1()(64bit) for package: 1:xorg-x11-font-utils-7.5-21.amzn2.x86_64
+--> Running transaction check
+---> Package dejavu-fonts-common.noarch 0:2.33-6.amzn2 will be installed
+---> Package fribidi.x86_64 0:1.0.2-1.amzn2.1 will be installed
+---> Package harfbuzz.x86_64 0:1.7.5-2.amzn2 will be installed
+--> Processing Dependency: libgraphite2.so.3()(64bit) for package: harfbuzz-1.7.5-2.amzn2.x86_64
+---> Package jasper-libs.x86_64 0:1.900.1-33.amzn2 will be installed
+---> Package libXft.x86_64 0:2.3.2-2.amzn2.0.2 will be installed
+---> Package libfontenc.x86_64 0:1.1.3-3.amzn2.0.2 will be installed
+---> Package libglvnd-egl.x86_64 1:1.0.1-0.1.git5baa1e5.amzn2.0.1 will be installed
+--> Processing Dependency: libglvnd(x86-64) = 1:1.0.1-0.1.git5baa1e5.amzn2.0.1 for package: 1:libglvnd-egl-1.0.1-0.1.git5baa1e5.amzn2.0.1.x86_64
+--> Processing Dependency: mesa-libEGL(x86-64) >= 13.0.4-1 for package: 1:libglvnd-egl-1.0.1-0.1.git5baa1e5.amzn2.0.1.x86_64
+--> Processing Dependency: libGLdispatch.so.0()(64bit) for package: 1:libglvnd-egl-1.0.1-0.1.git5baa1e5.amzn2.0.1.x86_64
+---> Package libglvnd-glx.x86_64 1:1.0.1-0.1.git5baa1e5.amzn2.0.1 will be installed
+--> Processing Dependency: mesa-libGL(x86-64) >= 13.0.4-1 for package: 1:libglvnd-glx-1.0.1-0.1.git5baa1e5.amzn2.0.1.x86_64
+---> Package libthai.x86_64 0:0.1.14-9.amzn2.0.2 will be installed
+---> Package pixman.x86_64 0:0.34.0-1.amzn2.0.2 will be installed
+---> Package python-lxml.x86_64 0:3.2.1-4.amzn2.0.3 will be installed
+--> Running transaction check
+---> Package graphite2.x86_64 0:1.3.10-1.amzn2.0.2 will be installed
+---> Package libglvnd.x86_64 1:1.0.1-0.1.git5baa1e5.amzn2.0.1 will be installed
+---> Package mesa-libEGL.x86_64 0:18.3.4-5.amzn2.0.1 will be installed
+--> Processing Dependency: mesa-libgbm = 18.3.4-5.amzn2.0.1 for package: mesa-libEGL-18.3.4-5.amzn2.0.1.x86_64
+--> Processing Dependency: libxshmfence.so.1()(64bit) for package: mesa-libEGL-18.3.4-5.amzn2.0.1.x86_64
+--> Processing Dependency: libwayland-server.so.0()(64bit) for package: mesa-libEGL-18.3.4-5.amzn2.0.1.x86_64
+--> Processing Dependency: libwayland-client.so.0()(64bit) for package: mesa-libEGL-18.3.4-5.amzn2.0.1.x86_64
+--> Processing Dependency: libglapi.so.0()(64bit) for package: mesa-libEGL-18.3.4-5.amzn2.0.1.x86_64
+--> Processing Dependency: libgbm.so.1()(64bit) for package: mesa-libEGL-18.3.4-5.amzn2.0.1.x86_64
+---> Package mesa-libGL.x86_64 0:18.3.4-5.amzn2.0.1 will be installed
+--> Processing Dependency: libXxf86vm.so.1()(64bit) for package: mesa-libGL-18.3.4-5.amzn2.0.1.x86_64
+--> Running transaction check
+---> Package libXxf86vm.x86_64 0:1.1.4-1.amzn2.0.2 will be installed
+---> Package libwayland-client.x86_64 0:1.17.0-1.amzn2 will be installed
+---> Package libwayland-server.x86_64 0:1.17.0-1.amzn2 will be installed
+---> Package libxshmfence.x86_64 0:1.2-1.amzn2.0.2 will be installed
+---> Package mesa-libgbm.x86_64 0:18.3.4-5.amzn2.0.1 will be installed
+---> Package mesa-libglapi.x86_64 0:18.3.4-5.amzn2.0.1 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+====================================================================================================================================
+ Package                                  Arch              Version                                     Repository             Size
+====================================================================================================================================
+Installing:
+ java-1.8.0-openjdk-devel                 x86_64            1:1.8.0.312.b07-1.amzn2.0.2                 amzn2-core            9.7 M
+Installing for dependencies:
+ alsa-lib                                 x86_64            1.1.4.1-2.amzn2                             amzn2-core            425 k
+ atk                                      x86_64            2.22.0-3.amzn2.0.2                          amzn2-core            258 k
+ avahi-libs                               x86_64            0.6.31-20.amzn2                             amzn2-core             61 k
+ cairo                                    x86_64            1.15.12-4.amzn2                             amzn2-core            732 k
+ copy-jdk-configs                         noarch            3.3-10.amzn2                                amzn2-core             21 k
+ cups-libs                                x86_64            1:1.6.3-51.amzn2                            amzn2-core            356 k
+ dejavu-fonts-common                      noarch            2.33-6.amzn2                                amzn2-core             64 k
+ dejavu-sans-fonts                        noarch            2.33-6.amzn2                                amzn2-core            1.4 M
+ fontconfig                               x86_64            2.13.0-4.3.amzn2                            amzn2-core            253 k
+ fontpackages-filesystem                  noarch            1.44-8.amzn2                                amzn2-core             10 k
+ fribidi                                  x86_64            1.0.2-1.amzn2.1                             amzn2-core             79 k
+ gdk-pixbuf2                              x86_64            2.36.12-3.amzn2                             amzn2-core            568 k
+ giflib                                   x86_64            4.1.6-9.amzn2.0.2                           amzn2-core             40 k
+ graphite2                                x86_64            1.3.10-1.amzn2.0.2                          amzn2-core            115 k
+ gtk-update-icon-cache                    x86_64            3.22.30-3.amzn2                             amzn2-core             26 k
+ gtk2                                     x86_64            2.24.31-1.amzn2.0.2                         amzn2-core            3.4 M
+ harfbuzz                                 x86_64            1.7.5-2.amzn2                               amzn2-core            279 k
+ hicolor-icon-theme                       noarch            0.12-7.amzn2                                amzn2-core             43 k
+ jasper-libs                              x86_64            1.900.1-33.amzn2                            amzn2-core            150 k
+ java-1.8.0-openjdk                       x86_64            1:1.8.0.312.b07-1.amzn2.0.2                 amzn2-core            310 k
+ java-1.8.0-openjdk-headless              x86_64            1:1.8.0.312.b07-1.amzn2.0.2                 amzn2-core             33 M
+ javapackages-tools                       noarch            3.4.1-11.amzn2                              amzn2-core             73 k
+ libICE                                   x86_64            1.0.9-9.amzn2.0.2                           amzn2-core             67 k
+ libSM                                    x86_64            1.2.2-2.amzn2.0.2                           amzn2-core             39 k
+ libX11                                   x86_64            1.6.7-3.amzn2.0.2                           amzn2-core            606 k
+ libX11-common                            noarch            1.6.7-3.amzn2.0.2                           amzn2-core            165 k
+ libXau                                   x86_64            1.0.8-2.1.amzn2.0.2                         amzn2-core             29 k
+ libXcomposite                            x86_64            0.4.4-4.1.amzn2.0.2                         amzn2-core             22 k
+ libXcursor                               x86_64            1.1.15-1.amzn2                              amzn2-core             30 k
+ libXdamage                               x86_64            1.1.4-4.1.amzn2.0.2                         amzn2-core             20 k
+ libXext                                  x86_64            1.3.3-3.amzn2.0.2                           amzn2-core             39 k
+ libXfixes                                x86_64            5.0.3-1.amzn2.0.2                           amzn2-core             18 k
+ libXft                                   x86_64            2.3.2-2.amzn2.0.2                           amzn2-core             60 k
+ libXi                                    x86_64            1.7.9-1.amzn2.0.2                           amzn2-core             41 k
+ libXinerama                              x86_64            1.1.3-2.1.amzn2.0.2                         amzn2-core             14 k
+ libXrandr                                x86_64            1.5.1-2.amzn2.0.3                           amzn2-core             27 k
+ libXrender                               x86_64            0.9.10-1.amzn2.0.2                          amzn2-core             26 k
+ libXtst                                  x86_64            1.2.3-1.amzn2.0.2                           amzn2-core             20 k
+ libXxf86vm                               x86_64            1.1.4-1.amzn2.0.2                           amzn2-core             17 k
+ libfontenc                               x86_64            1.1.3-3.amzn2.0.2                           amzn2-core             31 k
+ libglvnd                                 x86_64            1:1.0.1-0.1.git5baa1e5.amzn2.0.1            amzn2-core             89 k
+ libglvnd-egl                             x86_64            1:1.0.1-0.1.git5baa1e5.amzn2.0.1            amzn2-core             43 k
+ libglvnd-glx                             x86_64            1:1.0.1-0.1.git5baa1e5.amzn2.0.1            amzn2-core            125 k
+ libthai                                  x86_64            0.1.14-9.amzn2.0.2                          amzn2-core            187 k
+ libwayland-client                        x86_64            1.17.0-1.amzn2                              amzn2-core             34 k
+ libwayland-server                        x86_64            1.17.0-1.amzn2                              amzn2-core             40 k
+ libxcb                                   x86_64            1.12-1.amzn2.0.2                            amzn2-core            216 k
+ libxshmfence                             x86_64            1.2-1.amzn2.0.2                             amzn2-core            7.2 k
+ libxslt                                  x86_64            1.1.28-6.amzn2                              amzn2-core            240 k
+ lksctp-tools                             x86_64            1.0.17-2.amzn2.0.2                          amzn2-core             88 k
+ log4j-cve-2021-44228-hotpatch            noarch            1.1-13.amzn2                                amzn2-core            144 k
+ mesa-libEGL                              x86_64            18.3.4-5.amzn2.0.1                          amzn2-core            108 k
+ mesa-libGL                               x86_64            18.3.4-5.amzn2.0.1                          amzn2-core            162 k
+ mesa-libgbm                              x86_64            18.3.4-5.amzn2.0.1                          amzn2-core             38 k
+ mesa-libglapi                            x86_64            18.3.4-5.amzn2.0.1                          amzn2-core             45 k
+ pango                                    x86_64            1.42.4-4.amzn2                              amzn2-core            280 k
+ pcsc-lite-libs                           x86_64            1.8.8-7.amzn2                               amzn2-core             35 k
+ pixman                                   x86_64            0.34.0-1.amzn2.0.2                          amzn2-core            254 k
+ python-javapackages                      noarch            3.4.1-11.amzn2                              amzn2-core             31 k
+ python-lxml                              x86_64            3.2.1-4.amzn2.0.3                           amzn2-core            1.0 M
+ ttmkfdir                                 x86_64            3.0.9-42.amzn2.0.2                          amzn2-core             50 k
+ tzdata-java                              noarch            2021e-1.amzn2                               amzn2-core            190 k
+ xorg-x11-font-utils                      x86_64            1:7.5-21.amzn2                              amzn2-core            103 k
+ xorg-x11-fonts-Type1                     noarch            7.5-9.amzn2                                 amzn2-core            521 k
+
+Transaction Summary
+====================================================================================================================================
+Install  1 Package (+64 Dependent packages)
+
+Total download size: 57 M
+Installed size: 195 M
+Downloading packages:
+(1/65): atk-2.22.0-3.amzn2.0.2.x86_64.rpm                                                                    | 258 kB  00:00:00     
+(2/65): alsa-lib-1.1.4.1-2.amzn2.x86_64.rpm                                                                  | 425 kB  00:00:00     
+(3/65): avahi-libs-0.6.31-20.amzn2.x86_64.rpm                                                                |  61 kB  00:00:00     
+(4/65): copy-jdk-configs-3.3-10.amzn2.noarch.rpm                                                             |  21 kB  00:00:00     
+(5/65): cairo-1.15.12-4.amzn2.x86_64.rpm                                                                     | 732 kB  00:00:00     
+(6/65): dejavu-fonts-common-2.33-6.amzn2.noarch.rpm                                                          |  64 kB  00:00:00     
+(7/65): cups-libs-1.6.3-51.amzn2.x86_64.rpm                                                                  | 356 kB  00:00:00     
+(8/65): fontconfig-2.13.0-4.3.amzn2.x86_64.rpm                                                               | 253 kB  00:00:00     
+(9/65): fontpackages-filesystem-1.44-8.amzn2.noarch.rpm                                                      |  10 kB  00:00:00     
+(10/65): dejavu-sans-fonts-2.33-6.amzn2.noarch.rpm                                                           | 1.4 MB  00:00:00     
+(11/65): fribidi-1.0.2-1.amzn2.1.x86_64.rpm                                                                  |  79 kB  00:00:00     
+(12/65): giflib-4.1.6-9.amzn2.0.2.x86_64.rpm                                                                 |  40 kB  00:00:00     
+(13/65): gdk-pixbuf2-2.36.12-3.amzn2.x86_64.rpm                                                              | 568 kB  00:00:00     
+(14/65): gtk-update-icon-cache-3.22.30-3.amzn2.x86_64.rpm                                                    |  26 kB  00:00:00     
+(15/65): graphite2-1.3.10-1.amzn2.0.2.x86_64.rpm                                                             | 115 kB  00:00:00     
+(16/65): harfbuzz-1.7.5-2.amzn2.x86_64.rpm                                                                   | 279 kB  00:00:00     
+(17/65): gtk2-2.24.31-1.amzn2.0.2.x86_64.rpm                                                                 | 3.4 MB  00:00:00     
+(18/65): hicolor-icon-theme-0.12-7.amzn2.noarch.rpm                                                          |  43 kB  00:00:00     
+(19/65): jasper-libs-1.900.1-33.amzn2.x86_64.rpm                                                             | 150 kB  00:00:00     
+(20/65): java-1.8.0-openjdk-1.8.0.312.b07-1.amzn2.0.2.x86_64.rpm                                             | 310 kB  00:00:00     
+(21/65): java-1.8.0-openjdk-devel-1.8.0.312.b07-1.amzn2.0.2.x86_64.rpm                                       | 9.7 MB  00:00:00     
+(22/65): javapackages-tools-3.4.1-11.amzn2.noarch.rpm                                                        |  73 kB  00:00:00     
+(23/65): libICE-1.0.9-9.amzn2.0.2.x86_64.rpm                                                                 |  67 kB  00:00:00     
+(24/65): libSM-1.2.2-2.amzn2.0.2.x86_64.rpm                                                                  |  39 kB  00:00:00     
+(25/65): libX11-1.6.7-3.amzn2.0.2.x86_64.rpm                                                                 | 606 kB  00:00:00     
+(26/65): libX11-common-1.6.7-3.amzn2.0.2.noarch.rpm                                                          | 165 kB  00:00:00     
+(27/65): libXau-1.0.8-2.1.amzn2.0.2.x86_64.rpm                                                               |  29 kB  00:00:00     
+(28/65): libXcomposite-0.4.4-4.1.amzn2.0.2.x86_64.rpm                                                        |  22 kB  00:00:00     
+(29/65): libXcursor-1.1.15-1.amzn2.x86_64.rpm                                                                |  30 kB  00:00:00     
+(30/65): libXdamage-1.1.4-4.1.amzn2.0.2.x86_64.rpm                                                           |  20 kB  00:00:00     
+(31/65): libXext-1.3.3-3.amzn2.0.2.x86_64.rpm                                                                |  39 kB  00:00:00     
+(32/65): libXfixes-5.0.3-1.amzn2.0.2.x86_64.rpm                                                              |  18 kB  00:00:00     
+(33/65): libXft-2.3.2-2.amzn2.0.2.x86_64.rpm                                                                 |  60 kB  00:00:00     
+(34/65): libXi-1.7.9-1.amzn2.0.2.x86_64.rpm                                                                  |  41 kB  00:00:00     
+(35/65): libXinerama-1.1.3-2.1.amzn2.0.2.x86_64.rpm                                                          |  14 kB  00:00:00     
+(36/65): libXrandr-1.5.1-2.amzn2.0.3.x86_64.rpm                                                              |  27 kB  00:00:00     
+(37/65): libXrender-0.9.10-1.amzn2.0.2.x86_64.rpm                                                            |  26 kB  00:00:00     
+(38/65): libXtst-1.2.3-1.amzn2.0.2.x86_64.rpm                                                                |  20 kB  00:00:00     
+(39/65): libXxf86vm-1.1.4-1.amzn2.0.2.x86_64.rpm                                                             |  17 kB  00:00:00     
+(40/65): java-1.8.0-openjdk-headless-1.8.0.312.b07-1.amzn2.0.2.x86_64.rpm                                    |  33 MB  00:00:00     
+(41/65): libfontenc-1.1.3-3.amzn2.0.2.x86_64.rpm                                                             |  31 kB  00:00:00     
+(42/65): libglvnd-1.0.1-0.1.git5baa1e5.amzn2.0.1.x86_64.rpm                                                  |  89 kB  00:00:00     
+(43/65): libglvnd-egl-1.0.1-0.1.git5baa1e5.amzn2.0.1.x86_64.rpm                                              |  43 kB  00:00:00     
+(44/65): libglvnd-glx-1.0.1-0.1.git5baa1e5.amzn2.0.1.x86_64.rpm                                              | 125 kB  00:00:00     
+(45/65): libthai-0.1.14-9.amzn2.0.2.x86_64.rpm                                                               | 187 kB  00:00:00     
+(46/65): libwayland-client-1.17.0-1.amzn2.x86_64.rpm                                                         |  34 kB  00:00:00     
+(47/65): libwayland-server-1.17.0-1.amzn2.x86_64.rpm                                                         |  40 kB  00:00:00     
+(48/65): libxshmfence-1.2-1.amzn2.0.2.x86_64.rpm                                                             | 7.2 kB  00:00:00     
+(49/65): libxcb-1.12-1.amzn2.0.2.x86_64.rpm                                                                  | 216 kB  00:00:00     
+(50/65): libxslt-1.1.28-6.amzn2.x86_64.rpm                                                                   | 240 kB  00:00:00     
+(51/65): log4j-cve-2021-44228-hotpatch-1.1-13.amzn2.noarch.rpm                                               | 144 kB  00:00:00     
+(52/65): mesa-libEGL-18.3.4-5.amzn2.0.1.x86_64.rpm                                                           | 108 kB  00:00:00     
+(53/65): mesa-libGL-18.3.4-5.amzn2.0.1.x86_64.rpm                                                            | 162 kB  00:00:00     
+(54/65): lksctp-tools-1.0.17-2.amzn2.0.2.x86_64.rpm                                                          |  88 kB  00:00:00     
+(55/65): mesa-libgbm-18.3.4-5.amzn2.0.1.x86_64.rpm                                                           |  38 kB  00:00:00     
+(56/65): mesa-libglapi-18.3.4-5.amzn2.0.1.x86_64.rpm                                                         |  45 kB  00:00:00     
+(57/65): pcsc-lite-libs-1.8.8-7.amzn2.x86_64.rpm                                                             |  35 kB  00:00:00     
+(58/65): pango-1.42.4-4.amzn2.x86_64.rpm                                                                     | 280 kB  00:00:00     
+(59/65): python-javapackages-3.4.1-11.amzn2.noarch.rpm                                                       |  31 kB  00:00:00     
+(60/65): pixman-0.34.0-1.amzn2.0.2.x86_64.rpm                                                                | 254 kB  00:00:00     
+(61/65): ttmkfdir-3.0.9-42.amzn2.0.2.x86_64.rpm                                                              |  50 kB  00:00:00     
+(62/65): python-lxml-3.2.1-4.amzn2.0.3.x86_64.rpm                                                            | 1.0 MB  00:00:00     
+(63/65): tzdata-java-2021e-1.amzn2.noarch.rpm                                                                | 190 kB  00:00:00     
+(64/65): xorg-x11-font-utils-7.5-21.amzn2.x86_64.rpm                                                         | 103 kB  00:00:00     
+(65/65): xorg-x11-fonts-Type1-7.5-9.amzn2.noarch.rpm                                                         | 521 kB  00:00:00     
+------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                35 MB/s |  57 MB  00:00:01     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : mesa-libglapi-18.3.4-5.amzn2.0.1.x86_64                                                                         1/65 
+  Installing : libICE-1.0.9-9.amzn2.0.2.x86_64                                                                                 2/65 
+  Installing : libxslt-1.1.28-6.amzn2.x86_64                                                                                   3/65 
+  Installing : fontpackages-filesystem-1.44-8.amzn2.noarch                                                                     4/65 
+  Installing : 1:libglvnd-1.0.1-0.1.git5baa1e5.amzn2.0.1.x86_64                                                                5/65 
+  Installing : libxshmfence-1.2-1.amzn2.0.2.x86_64                                                                             6/65 
+  Installing : libwayland-server-1.17.0-1.amzn2.x86_64                                                                         7/65 
+  Installing : mesa-libgbm-18.3.4-5.amzn2.0.1.x86_64                                                                           8/65 
+  Installing : dejavu-fonts-common-2.33-6.amzn2.noarch                                                                         9/65 
+  Installing : dejavu-sans-fonts-2.33-6.amzn2.noarch                                                                          10/65 
+  Installing : fontconfig-2.13.0-4.3.amzn2.x86_64                                                                             11/65 
+  Installing : python-lxml-3.2.1-4.amzn2.0.3.x86_64                                                                           12/65 
+  Installing : python-javapackages-3.4.1-11.amzn2.noarch                                                                      13/65 
+  Installing : javapackages-tools-3.4.1-11.amzn2.noarch                                                                       14/65 
+  Installing : libSM-1.2.2-2.amzn2.0.2.x86_64                                                                                 15/65 
+  Installing : fribidi-1.0.2-1.amzn2.1.x86_64                                                                                 16/65 
+  Installing : graphite2-1.3.10-1.amzn2.0.2.x86_64                                                                            17/65 
+  Installing : harfbuzz-1.7.5-2.amzn2.x86_64                                                                                  18/65 
+  Installing : jasper-libs-1.900.1-33.amzn2.x86_64                                                                            19/65 
+  Installing : alsa-lib-1.1.4.1-2.amzn2.x86_64                                                                                20/65 
+  Installing : copy-jdk-configs-3.3-10.amzn2.noarch                                                                           21/65 
+  Installing : log4j-cve-2021-44228-hotpatch-1.1-13.amzn2.noarch                                                              22/65 
+Created symlink from /etc/systemd/system/multi-user.target.wants/log4j-cve-2021-44228-hotpatch.service to /usr/lib/systemd/system/log4j-cve-2021-44228-hotpatch.service.
+  Installing : libwayland-client-1.17.0-1.amzn2.x86_64                                                                        23/65 
+  Installing : pixman-0.34.0-1.amzn2.0.2.x86_64                                                                               24/65 
+  Installing : hicolor-icon-theme-0.12-7.amzn2.noarch                                                                         25/65 
+  Installing : pcsc-lite-libs-1.8.8-7.amzn2.x86_64                                                                            26/65 
+  Installing : avahi-libs-0.6.31-20.amzn2.x86_64                                                                              27/65 
+  Installing : 1:cups-libs-1.6.3-51.amzn2.x86_64                                                                              28/65 
+  Installing : atk-2.22.0-3.amzn2.0.2.x86_64                                                                                  29/65 
+  Installing : libthai-0.1.14-9.amzn2.0.2.x86_64                                                                              30/65 
+  Installing : libfontenc-1.1.3-3.amzn2.0.2.x86_64                                                                            31/65 
+  Installing : 1:xorg-x11-font-utils-7.5-21.amzn2.x86_64                                                                      32/65 
+  Installing : libXau-1.0.8-2.1.amzn2.0.2.x86_64                                                                              33/65 
+  Installing : libxcb-1.12-1.amzn2.0.2.x86_64                                                                                 34/65 
+  Installing : libX11-common-1.6.7-3.amzn2.0.2.noarch                                                                         35/65 
+  Installing : libX11-1.6.7-3.amzn2.0.2.x86_64                                                                                36/65 
+  Installing : libXext-1.3.3-3.amzn2.0.2.x86_64                                                                               37/65 
+  Installing : libXrender-0.9.10-1.amzn2.0.2.x86_64                                                                           38/65 
+  Installing : libXfixes-5.0.3-1.amzn2.0.2.x86_64                                                                             39/65 
+  Installing : libXi-1.7.9-1.amzn2.0.2.x86_64                                                                                 40/65 
+  Installing : libXdamage-1.1.4-4.1.amzn2.0.2.x86_64                                                                          41/65 
+  Installing : libXcomposite-0.4.4-4.1.amzn2.0.2.x86_64                                                                       42/65 
+  Installing : gdk-pixbuf2-2.36.12-3.amzn2.x86_64                                                                             43/65 
+  Installing : gtk-update-icon-cache-3.22.30-3.amzn2.x86_64                                                                   44/65 
+  Installing : libXtst-1.2.3-1.amzn2.0.2.x86_64                                                                               45/65 
+  Installing : libXcursor-1.1.15-1.amzn2.x86_64                                                                               46/65 
+  Installing : libXrandr-1.5.1-2.amzn2.0.3.x86_64                                                                             47/65 
+  Installing : libXft-2.3.2-2.amzn2.0.2.x86_64                                                                                48/65 
+  Installing : libXinerama-1.1.3-2.1.amzn2.0.2.x86_64                                                                         49/65 
+  Installing : libXxf86vm-1.1.4-1.amzn2.0.2.x86_64                                                                            50/65 
+  Installing : 1:libglvnd-glx-1.0.1-0.1.git5baa1e5.amzn2.0.1.x86_64                                                           51/65 
+  Installing : mesa-libGL-18.3.4-5.amzn2.0.1.x86_64                                                                           52/65 
+  Installing : 1:libglvnd-egl-1.0.1-0.1.git5baa1e5.amzn2.0.1.x86_64                                                           53/65 
+  Installing : mesa-libEGL-18.3.4-5.amzn2.0.1.x86_64                                                                          54/65 
+  Installing : cairo-1.15.12-4.amzn2.x86_64                                                                                   55/65 
+  Installing : pango-1.42.4-4.amzn2.x86_64                                                                                    56/65 
+  Installing : gtk2-2.24.31-1.amzn2.0.2.x86_64                                                                                57/65 
+  Installing : giflib-4.1.6-9.amzn2.0.2.x86_64                                                                                58/65 
+  Installing : ttmkfdir-3.0.9-42.amzn2.0.2.x86_64                                                                             59/65 
+  Installing : xorg-x11-fonts-Type1-7.5-9.amzn2.noarch                                                                        60/65 
+  Installing : lksctp-tools-1.0.17-2.amzn2.0.2.x86_64                                                                         61/65 
+  Installing : tzdata-java-2021e-1.amzn2.noarch                                                                               62/65 
+  Installing : 1:java-1.8.0-openjdk-headless-1.8.0.312.b07-1.amzn2.0.2.x86_64                                                 63/65 
+  Installing : 1:java-1.8.0-openjdk-1.8.0.312.b07-1.amzn2.0.2.x86_64                                                          64/65 
+  Installing : 1:java-1.8.0-openjdk-devel-1.8.0.312.b07-1.amzn2.0.2.x86_64                                                    65/65 
+  Verifying  : tzdata-java-2021e-1.amzn2.noarch                                                                                1/65 
+  Verifying  : libSM-1.2.2-2.amzn2.0.2.x86_64                                                                                  2/65 
+  Verifying  : libwayland-server-1.17.0-1.amzn2.x86_64                                                                         3/65 
+  Verifying  : libxshmfence-1.2-1.amzn2.0.2.x86_64                                                                             4/65 
+  Verifying  : 1:xorg-x11-font-utils-7.5-21.amzn2.x86_64                                                                       5/65 
+  Verifying  : 1:libglvnd-1.0.1-0.1.git5baa1e5.amzn2.0.1.x86_64                                                                6/65 
+  Verifying  : 1:libglvnd-egl-1.0.1-0.1.git5baa1e5.amzn2.0.1.x86_64                                                            7/65 
+  Verifying  : fontpackages-filesystem-1.44-8.amzn2.noarch                                                                     8/65 
+  Verifying  : mesa-libEGL-18.3.4-5.amzn2.0.1.x86_64                                                                           9/65 
+  Verifying  : libXdamage-1.1.4-4.1.amzn2.0.2.x86_64                                                                          10/65 
+  Verifying  : pango-1.42.4-4.amzn2.x86_64                                                                                    11/65 
+  Verifying  : 1:java-1.8.0-openjdk-1.8.0.312.b07-1.amzn2.0.2.x86_64                                                          12/65 
+  Verifying  : dejavu-fonts-common-2.33-6.amzn2.noarch                                                                        13/65 
+  Verifying  : libxcb-1.12-1.amzn2.0.2.x86_64                                                                                 14/65 
+  Verifying  : libXrandr-1.5.1-2.amzn2.0.3.x86_64                                                                             15/65 
+  Verifying  : mesa-libGL-18.3.4-5.amzn2.0.1.x86_64                                                                           16/65 
+  Verifying  : libXext-1.3.3-3.amzn2.0.2.x86_64                                                                               17/65 
+  Verifying  : libX11-1.6.7-3.amzn2.0.2.x86_64                                                                                18/65 
+  Verifying  : mesa-libglapi-18.3.4-5.amzn2.0.1.x86_64                                                                        19/65 
+  Verifying  : lksctp-tools-1.0.17-2.amzn2.0.2.x86_64                                                                         20/65 
+  Verifying  : cairo-1.15.12-4.amzn2.x86_64                                                                                   21/65 
+  Verifying  : libXcursor-1.1.15-1.amzn2.x86_64                                                                               22/65 
+  Verifying  : ttmkfdir-3.0.9-42.amzn2.0.2.x86_64                                                                             23/65 
+  Verifying  : gtk-update-icon-cache-3.22.30-3.amzn2.x86_64                                                                   24/65 
+  Verifying  : libXcomposite-0.4.4-4.1.amzn2.0.2.x86_64                                                                       25/65 
+  Verifying  : libX11-common-1.6.7-3.amzn2.0.2.noarch                                                                         26/65 
+  Verifying  : python-javapackages-3.4.1-11.amzn2.noarch                                                                      27/65 
+  Verifying  : 1:cups-libs-1.6.3-51.amzn2.x86_64                                                                              28/65 
+  Verifying  : libXau-1.0.8-2.1.amzn2.0.2.x86_64                                                                              29/65 
+  Verifying  : libfontenc-1.1.3-3.amzn2.0.2.x86_64                                                                            30/65 
+  Verifying  : libthai-0.1.14-9.amzn2.0.2.x86_64                                                                              31/65 
+  Verifying  : xorg-x11-fonts-Type1-7.5-9.amzn2.noarch                                                                        32/65 
+  Verifying  : atk-2.22.0-3.amzn2.0.2.x86_64                                                                                  33/65 
+  Verifying  : gtk2-2.24.31-1.amzn2.0.2.x86_64                                                                                34/65 
+  Verifying  : libXrender-0.9.10-1.amzn2.0.2.x86_64                                                                           35/65 
+  Verifying  : avahi-libs-0.6.31-20.amzn2.x86_64                                                                              36/65 
+  Verifying  : dejavu-sans-fonts-2.33-6.amzn2.noarch                                                                          37/65 
+  Verifying  : gdk-pixbuf2-2.36.12-3.amzn2.x86_64                                                                             38/65 
+  Verifying  : python-lxml-3.2.1-4.amzn2.0.3.x86_64                                                                           39/65 
+  Verifying  : fontconfig-2.13.0-4.3.amzn2.x86_64                                                                             40/65 
+  Verifying  : pcsc-lite-libs-1.8.8-7.amzn2.x86_64                                                                            41/65 
+  Verifying  : hicolor-icon-theme-0.12-7.amzn2.noarch                                                                         42/65 
+  Verifying  : harfbuzz-1.7.5-2.amzn2.x86_64                                                                                  43/65 
+  Verifying  : mesa-libgbm-18.3.4-5.amzn2.0.1.x86_64                                                                          44/65 
+  Verifying  : giflib-4.1.6-9.amzn2.0.2.x86_64                                                                                45/65 
+  Verifying  : libXinerama-1.1.3-2.1.amzn2.0.2.x86_64                                                                         46/65 
+  Verifying  : libXi-1.7.9-1.amzn2.0.2.x86_64                                                                                 47/65 
+  Verifying  : pixman-0.34.0-1.amzn2.0.2.x86_64                                                                               48/65 
+  Verifying  : 1:java-1.8.0-openjdk-devel-1.8.0.312.b07-1.amzn2.0.2.x86_64                                                    49/65 
+  Verifying  : libXxf86vm-1.1.4-1.amzn2.0.2.x86_64                                                                            50/65 
+  Verifying  : libwayland-client-1.17.0-1.amzn2.x86_64                                                                        51/65 
+  Verifying  : log4j-cve-2021-44228-hotpatch-1.1-13.amzn2.noarch                                                              52/65 
+  Verifying  : 1:java-1.8.0-openjdk-headless-1.8.0.312.b07-1.amzn2.0.2.x86_64                                                 53/65 
+  Verifying  : libxslt-1.1.28-6.amzn2.x86_64                                                                                  54/65 
+  Verifying  : libXtst-1.2.3-1.amzn2.0.2.x86_64                                                                               55/65 
+  Verifying  : libXft-2.3.2-2.amzn2.0.2.x86_64                                                                                56/65 
+  Verifying  : copy-jdk-configs-3.3-10.amzn2.noarch                                                                           57/65 
+  Verifying  : alsa-lib-1.1.4.1-2.amzn2.x86_64                                                                                58/65 
+  Verifying  : jasper-libs-1.900.1-33.amzn2.x86_64                                                                            59/65 
+  Verifying  : 1:libglvnd-glx-1.0.1-0.1.git5baa1e5.amzn2.0.1.x86_64                                                           60/65 
+  Verifying  : libXfixes-5.0.3-1.amzn2.0.2.x86_64                                                                             61/65 
+  Verifying  : libICE-1.0.9-9.amzn2.0.2.x86_64                                                                                62/65 
+  Verifying  : graphite2-1.3.10-1.amzn2.0.2.x86_64                                                                            63/65 
+  Verifying  : fribidi-1.0.2-1.amzn2.1.x86_64                                                                                 64/65 
+  Verifying  : javapackages-tools-3.4.1-11.amzn2.noarch                                                                       65/65 
+
+Installed:
+  java-1.8.0-openjdk-devel.x86_64 1:1.8.0.312.b07-1.amzn2.0.2                                                                       
+
+Dependency Installed:
+  alsa-lib.x86_64 0:1.1.4.1-2.amzn2                                     atk.x86_64 0:2.22.0-3.amzn2.0.2                             
+  avahi-libs.x86_64 0:0.6.31-20.amzn2                                   cairo.x86_64 0:1.15.12-4.amzn2                              
+  copy-jdk-configs.noarch 0:3.3-10.amzn2                                cups-libs.x86_64 1:1.6.3-51.amzn2                           
+  dejavu-fonts-common.noarch 0:2.33-6.amzn2                             dejavu-sans-fonts.noarch 0:2.33-6.amzn2                     
+  fontconfig.x86_64 0:2.13.0-4.3.amzn2                                  fontpackages-filesystem.noarch 0:1.44-8.amzn2               
+  fribidi.x86_64 0:1.0.2-1.amzn2.1                                      gdk-pixbuf2.x86_64 0:2.36.12-3.amzn2                        
+  giflib.x86_64 0:4.1.6-9.amzn2.0.2                                     graphite2.x86_64 0:1.3.10-1.amzn2.0.2                       
+  gtk-update-icon-cache.x86_64 0:3.22.30-3.amzn2                        gtk2.x86_64 0:2.24.31-1.amzn2.0.2                           
+  harfbuzz.x86_64 0:1.7.5-2.amzn2                                       hicolor-icon-theme.noarch 0:0.12-7.amzn2                    
+  jasper-libs.x86_64 0:1.900.1-33.amzn2                                 java-1.8.0-openjdk.x86_64 1:1.8.0.312.b07-1.amzn2.0.2       
+  java-1.8.0-openjdk-headless.x86_64 1:1.8.0.312.b07-1.amzn2.0.2        javapackages-tools.noarch 0:3.4.1-11.amzn2                  
+  libICE.x86_64 0:1.0.9-9.amzn2.0.2                                     libSM.x86_64 0:1.2.2-2.amzn2.0.2                            
+  libX11.x86_64 0:1.6.7-3.amzn2.0.2                                     libX11-common.noarch 0:1.6.7-3.amzn2.0.2                    
+  libXau.x86_64 0:1.0.8-2.1.amzn2.0.2                                   libXcomposite.x86_64 0:0.4.4-4.1.amzn2.0.2                  
+  libXcursor.x86_64 0:1.1.15-1.amzn2                                    libXdamage.x86_64 0:1.1.4-4.1.amzn2.0.2                     
+  libXext.x86_64 0:1.3.3-3.amzn2.0.2                                    libXfixes.x86_64 0:5.0.3-1.amzn2.0.2                        
+  libXft.x86_64 0:2.3.2-2.amzn2.0.2                                     libXi.x86_64 0:1.7.9-1.amzn2.0.2                            
+  libXinerama.x86_64 0:1.1.3-2.1.amzn2.0.2                              libXrandr.x86_64 0:1.5.1-2.amzn2.0.3                        
+  libXrender.x86_64 0:0.9.10-1.amzn2.0.2                                libXtst.x86_64 0:1.2.3-1.amzn2.0.2                          
+  libXxf86vm.x86_64 0:1.1.4-1.amzn2.0.2                                 libfontenc.x86_64 0:1.1.3-3.amzn2.0.2                       
+  libglvnd.x86_64 1:1.0.1-0.1.git5baa1e5.amzn2.0.1                      libglvnd-egl.x86_64 1:1.0.1-0.1.git5baa1e5.amzn2.0.1        
+  libglvnd-glx.x86_64 1:1.0.1-0.1.git5baa1e5.amzn2.0.1                  libthai.x86_64 0:0.1.14-9.amzn2.0.2                         
+  libwayland-client.x86_64 0:1.17.0-1.amzn2                             libwayland-server.x86_64 0:1.17.0-1.amzn2                   
+  libxcb.x86_64 0:1.12-1.amzn2.0.2                                      libxshmfence.x86_64 0:1.2-1.amzn2.0.2                       
+  libxslt.x86_64 0:1.1.28-6.amzn2                                       lksctp-tools.x86_64 0:1.0.17-2.amzn2.0.2                    
+  log4j-cve-2021-44228-hotpatch.noarch 0:1.1-13.amzn2                   mesa-libEGL.x86_64 0:18.3.4-5.amzn2.0.1                     
+  mesa-libGL.x86_64 0:18.3.4-5.amzn2.0.1                                mesa-libgbm.x86_64 0:18.3.4-5.amzn2.0.1                     
+  mesa-libglapi.x86_64 0:18.3.4-5.amzn2.0.1                             pango.x86_64 0:1.42.4-4.amzn2                               
+  pcsc-lite-libs.x86_64 0:1.8.8-7.amzn2                                 pixman.x86_64 0:0.34.0-1.amzn2.0.2                          
+  python-javapackages.noarch 0:3.4.1-11.amzn2                           python-lxml.x86_64 0:3.2.1-4.amzn2.0.3                      
+  ttmkfdir.x86_64 0:3.0.9-42.amzn2.0.2                                  tzdata-java.noarch 0:2021e-1.amzn2                          
+  xorg-x11-font-utils.x86_64 1:7.5-21.amzn2                             xorg-x11-fonts-Type1.noarch 0:7.5-9.amzn2                   
+
+Complete!
+[ec2-user@ip-172-31-24-204 ~]$ sudo /usr/sbin/alternatives --config java
+
+1 개의 프로그램이 'java'를 제공합니다.
+
+  선택    명령
+-----------------------------------------------
+*+ 1           java-1.8.0-openjdk.x86_64 (/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.312.b07-1.amzn2.0.2.x86_64/jre/bin/java)
+
+현재 선택[+]을 유지하려면 엔터키를 누르고, 아니면 선택 번호를 입력하십시오:1
+[ec2-user@ip-172-31-24-204 ~]$ java -version
+openjdk version "1.8.0_312"
+OpenJDK Runtime Environment (build 1.8.0_312-b07)
+OpenJDK 64-Bit Server VM (build 25.312-b07, mixed mode)
+[ec2-user@ip-172-31-24-204 ~]$ sudo yum install git
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+Resolving Dependencies
+--> Running transaction check
+---> Package git.x86_64 0:2.32.0-1.amzn2.0.1 will be installed
+--> Processing Dependency: perl-Git = 2.32.0-1.amzn2.0.1 for package: git-2.32.0-1.amzn2.0.1.x86_64
+--> Processing Dependency: git-core-doc = 2.32.0-1.amzn2.0.1 for package: git-2.32.0-1.amzn2.0.1.x86_64
+--> Processing Dependency: git-core = 2.32.0-1.amzn2.0.1 for package: git-2.32.0-1.amzn2.0.1.x86_64
+--> Processing Dependency: emacs-filesystem >= 27.1 for package: git-2.32.0-1.amzn2.0.1.x86_64
+--> Processing Dependency: perl(Term::ReadKey) for package: git-2.32.0-1.amzn2.0.1.x86_64
+--> Processing Dependency: perl(Git::I18N) for package: git-2.32.0-1.amzn2.0.1.x86_64
+--> Processing Dependency: perl(Git) for package: git-2.32.0-1.amzn2.0.1.x86_64
+--> Running transaction check
+---> Package emacs-filesystem.noarch 1:27.2-4.amzn2.0.1 will be installed
+---> Package git-core.x86_64 0:2.32.0-1.amzn2.0.1 will be installed
+---> Package git-core-doc.noarch 0:2.32.0-1.amzn2.0.1 will be installed
+---> Package perl-Git.noarch 0:2.32.0-1.amzn2.0.1 will be installed
+--> Processing Dependency: perl(Error) for package: perl-Git-2.32.0-1.amzn2.0.1.noarch
+---> Package perl-TermReadKey.x86_64 0:2.30-20.amzn2.0.2 will be installed
+--> Running transaction check
+---> Package perl-Error.noarch 1:0.17020-2.amzn2 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+====================================================================================================================================
+ Package                           Arch                    Version                                Repository                   Size
+====================================================================================================================================
+Installing:
+ git                               x86_64                  2.32.0-1.amzn2.0.1                     amzn2-core                  126 k
+Installing for dependencies:
+ emacs-filesystem                  noarch                  1:27.2-4.amzn2.0.1                     amzn2-core                   67 k
+ git-core                          x86_64                  2.32.0-1.amzn2.0.1                     amzn2-core                  4.8 M
+ git-core-doc                      noarch                  2.32.0-1.amzn2.0.1                     amzn2-core                  2.7 M
+ perl-Error                        noarch                  1:0.17020-2.amzn2                      amzn2-core                   32 k
+ perl-Git                          noarch                  2.32.0-1.amzn2.0.1                     amzn2-core                   43 k
+ perl-TermReadKey                  x86_64                  2.30-20.amzn2.0.2                      amzn2-core                   31 k
+
+Transaction Summary
+====================================================================================================================================
+Install  1 Package (+6 Dependent packages)
+
+Total download size: 7.8 M
+Installed size: 38 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/7): emacs-filesystem-27.2-4.amzn2.0.1.noarch.rpm                                                          |  67 kB  00:00:00     
+(2/7): git-2.32.0-1.amzn2.0.1.x86_64.rpm                                                                     | 126 kB  00:00:00     
+(3/7): git-core-doc-2.32.0-1.amzn2.0.1.noarch.rpm                                                            | 2.7 MB  00:00:00     
+(4/7): git-core-2.32.0-1.amzn2.0.1.x86_64.rpm                                                                | 4.8 MB  00:00:00     
+(5/7): perl-Error-0.17020-2.amzn2.noarch.rpm                                                                 |  32 kB  00:00:00     
+(6/7): perl-Git-2.32.0-1.amzn2.0.1.noarch.rpm                                                                |  43 kB  00:00:00     
+(7/7): perl-TermReadKey-2.30-20.amzn2.0.2.x86_64.rpm                                                         |  31 kB  00:00:00     
+------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                25 MB/s | 7.8 MB  00:00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : git-core-2.32.0-1.amzn2.0.1.x86_64                                                                               1/7 
+  Installing : git-core-doc-2.32.0-1.amzn2.0.1.noarch                                                                           2/7 
+  Installing : 1:perl-Error-0.17020-2.amzn2.noarch                                                                              3/7 
+  Installing : 1:emacs-filesystem-27.2-4.amzn2.0.1.noarch                                                                       4/7 
+  Installing : perl-TermReadKey-2.30-20.amzn2.0.2.x86_64                                                                        5/7 
+  Installing : perl-Git-2.32.0-1.amzn2.0.1.noarch                                                                               6/7 
+  Installing : git-2.32.0-1.amzn2.0.1.x86_64                                                                                    7/7 
+  Verifying  : perl-TermReadKey-2.30-20.amzn2.0.2.x86_64                                                                        1/7 
+  Verifying  : git-core-doc-2.32.0-1.amzn2.0.1.noarch                                                                           2/7 
+  Verifying  : perl-Git-2.32.0-1.amzn2.0.1.noarch                                                                               3/7 
+  Verifying  : 1:emacs-filesystem-27.2-4.amzn2.0.1.noarch                                                                       4/7 
+  Verifying  : git-2.32.0-1.amzn2.0.1.x86_64                                                                                    5/7 
+  Verifying  : git-core-2.32.0-1.amzn2.0.1.x86_64                                                                               6/7 
+  Verifying  : 1:perl-Error-0.17020-2.amzn2.noarch                                                                              7/7 
+
+Installed:
+  git.x86_64 0:2.32.0-1.amzn2.0.1                                                                                                   
+
+Dependency Installed:
+  emacs-filesystem.noarch 1:27.2-4.amzn2.0.1   git-core.x86_64 0:2.32.0-1.amzn2.0.1   git-core-doc.noarch 0:2.32.0-1.amzn2.0.1     
+  perl-Error.noarch 1:0.17020-2.amzn2          perl-Git.noarch 0:2.32.0-1.amzn2.0.1   perl-TermReadKey.x86_64 0:2.30-20.amzn2.0.2  
+
+Complete!
+[ec2-user@ip-172-31-24-204 ~]$ git --version
+git version 2.32.0
+[ec2-user@ip-172-31-24-204 ~]$ client_loop: send disconnect: Broken pipe
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % mkdir testApp
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % mkdir testApp/git
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % cd ~/testApp/git
+cd: no such file or directory: /Users/simmigyeong/testApp/git
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % cd testApp/git
+simmigyeong@simmigyeong-ui-MacBookPro git % git clone https://github.com/Sim-mi-gyeong/SchedulerApp.git
+'SchedulerApp'에 복제합니다...
+remote: Enumerating objects: 37, done.
+remote: Counting objects: 100% (37/37), done.
+remote: Compressing objects: 100% (26/26), done.
+remote: Total 37 (delta 2), reused 33 (delta 1), pack-reused 0
+오브젝트를 받는 중: 100% (37/37), 61.48 KiB | 304.00 KiB/s, 완료.
+델타를 알아내는 중: 100% (2/2), 완료.
+simmigyeong@simmigyeong-ui-MacBookPro git % cd SchedulerApp
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerApp % ll
+zsh: command not found: ll
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerApp % ls -al
+total 16
+drwxr-xr-x   6 simmigyeong  staff  192  4 10 19:18 .
+drwxr-xr-x   3 simmigyeong  staff   96  4 10 19:18 ..
+drwxr-xr-x  12 simmigyeong  staff  384  4 10 19:18 .git
+-rw-r--r--   1 simmigyeong  staff  278  4 10 19:18 .gitignore
+-rw-r--r--   1 simmigyeong  staff   14  4 10 19:18 README.md
+drwxr-xr-x   9 simmigyeong  staff  288  4 10 19:18 SchedulerAppTest_Springboot
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerApp % cd SchedulerAppTest_Springboot
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % ls
+build.gradle	gradle		gradlew		gradlew.bat	settings.gradle	src
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % git branch -a
+* main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/main
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % vi deploy.sh
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % vi deploy.sh
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % vi deploy.sh
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % chomd 755 ./deploy.sh
+zsh: command not found: chomd
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % chmod 755 ./deploy.sh
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % ls
+build.gradle	gradle		gradlew.bat	src
+deploy.sh	gradlew		settings.gradle
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % /deploy.sh
+zsh: no such file or directory: /deploy.sh
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % ./deploy.sh
+./deploy.sh: line 2: cd: /home/ec2-user/testApp/git/SchedulerApp/SchedulerAppTest_Springboot: No such file or directory
+> Git Pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0
+오브젝트 묶음 푸는 중: 100% (4/4), 408 bytes | 81.00 KiB/s, 완료.
+https://github.com/Sim-mi-gyeong/SchedulerApp URL에서
+   6aeff04..d6d0834  main       -> origin/main
+업데이트 중 6aeff04..d6d0834
+Fast-forward
+ SchedulerAppTest_Springboot/build.gradle | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+> 프로젝트 Build 시작
+
+Welcome to Gradle 7.4.1!
+
+Here are the highlights of this release:
+ - Aggregated test and JaCoCo reports
+ - Marking additional test source directories as tests in IntelliJ
+ - Support for Adoptium JDKs in Java toolchains
+
+For more details see https://docs.gradle.org/7.4.1/release-notes.html
+
+
+> Task :test
+2022-04-10 19:46:23.695  INFO 10305 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-10 19:46:23.705  INFO 10305 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-04-10 19:46:24.450  INFO 10305 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+
+BUILD SUCCESSFUL in 23s
+7 actionable tasks: 7 executed
+>Build 파일 복사
+usage: cp [-R [-H | -L | -P]] [-fi | -n] [-apvXc] source_file target_file
+       cp [-R [-H | -L | -P]] [-fi | -n] [-apvXc] source_file ... target_directory
+> 현재 구동중인 애플리케이션 pid 확인
+
+./deploy.sh: line 12: [-z: command not found
+> kill -15 
+kill: usage: kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill -l [sigspec]
+> 새 애플리케이션 배포
+ls: /home/ec2-user/testApp/git/: No such file or directory
+> JAR Name: 
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % appending output to nohup.out
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % ls
+build		deploy.sh	gradlew		nohup.out	src
+build.gradle	gradle		gradlew.bat	settings.gradle
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % vi deploy.sh
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % vi deploy.sh
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % vi deploy.sh
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % ./deploy.sh 
+./deploy.sh: line 2: cd: /home/ec2-user/testApp/git/SchedulerApp/SchedulerAppTest_Springboot: No such file or directory
+> Git Pull
+이미 업데이트 상태입니다.
+> 프로젝트 Build 시작
+
+BUILD SUCCESSFUL in 3s
+7 actionable tasks: 2 executed, 5 up-to-date
+>Build 파일 복사
+usage: cp [-R [-H | -L | -P]] [-fi | -n] [-apvXc] source_file target_file
+       cp [-R [-H | -L | -P]] [-fi | -n] [-apvXc] source_file ... target_directory
+> 현재 구동중인 애플리케이션 pid 확인
+
+./deploy.sh: line 12: [-z: command not found
+> kill -15 
+kill: usage: kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill -l [sigspec]
+> 새 애플리케이션 배포
+ls: /home/ec2-user/testApp/git/SchedulerApp: No such file or directory
+> JAR Name: 
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % appending output to nohup.out
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % vi deploy.sh
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % vi deploy.sh
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % ./deploy.sh 
+./deploy.sh: line 2: cd: /home/ec2-user/testApp/git/SchedulerApp/SchedulerAppTest_Springboot/: No such file or directory
+> Git Pull
+이미 업데이트 상태입니다.
+> 프로젝트 Build 시작
+
+BUILD SUCCESSFUL in 2s
+7 actionable tasks: 2 executed, 5 up-to-date
+>Build 파일 복사
+usage: cp [-R [-H | -L | -P]] [-fi | -n] [-apvXc] source_file target_file
+       cp [-R [-H | -L | -P]] [-fi | -n] [-apvXc] source_file ... target_directory
+> 현재 구동중인 애플리케이션 pid 확인
+
+./deploy.sh: line 12: [-z: command not found
+> kill -15 
+kill: usage: kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill -l [sigspec]
+> 새 애플리케이션 배포
+ls: /home/ec2-user/testApp/git/SchedulerApp: No such file or directory
+> JAR Name: 
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % appending output to nohup.out
+
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % pwd
+/Users/simmigyeong/.ssh/testApp/git/SchedulerApp/SchedulerAppTest_Springboot
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % vi deploy.sh
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % vi deploy.sh
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % ./deploy.sh 
+> Git Pull
+이미 업데이트 상태입니다.
+> 프로젝트 Build 시작
+
+BUILD SUCCESSFUL in 3s
+7 actionable tasks: 2 executed, 5 up-to-date
+>Build 파일 복사
+usage: cp [-R [-H | -L | -P]] [-fi | -n] [-apvXc] source_file target_file
+       cp [-R [-H | -L | -P]] [-fi | -n] [-apvXc] source_file ... target_directory
+> 현재 구동중인 애플리케이션 pid 확인
+
+./deploy.sh: line 12: [-z: command not found
+> kill -15 
+kill: usage: kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill -l [sigspec]
+> 새 애플리케이션 배포
+> JAR Name: SchedulerAppTest_Springboot
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % appending output to nohup.out
+
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % ls
+build		deploy.sh	gradlew		nohup.out	src
+build.gradle	gradle		gradlew.bat	settings.gradle
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % ps -ef | grep SchedulerAppTest_Springboot
+  501 10535  8452   0  7:57PM ttys004    0:00.01 grep SchedulerAppTest_Springboot
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % tail -f nohup.out
+Error: Unable to access jarfile /home/ec2-user/testApp/git/
+Error: Unable to access jarfile /home/ec2-user/testApp/git/
+Error: Unable to access jarfile /home/ec2-user/testApp/git/
+Error: Unable to access jarfile /Users/simmigyeong/.ssh/testApp/git/SchedulerAppTest_Springboot
+
+
+pwd
+^C
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % ls -al
+total 64
+drwxr-xr-x  13 simmigyeong  staff   416  4 10 19:55 .
+drwxr-xr-x   6 simmigyeong  staff   192  4 10 19:18 ..
+-rw-r--r--   1 simmigyeong  staff   444  4 10 19:18 .gitignore
+drwxr-xr-x   6 simmigyeong  staff   192  4 10 19:46 .gradle
+drwxr-xr-x  10 simmigyeong  staff   320  4 10 19:46 build
+-rw-r--r--   1 simmigyeong  staff   991  4 10 19:46 build.gradle
+-rwxr-xr-x   1 simmigyeong  staff   802  4 10 19:55 deploy.sh
+drwxr-xr-x   3 simmigyeong  staff    96  4 10 19:18 gradle
+-rwxr-xr-x   1 simmigyeong  staff  8070  4 10 19:18 gradlew
+-rw-r--r--   1 simmigyeong  staff  2674  4 10 19:18 gradlew.bat
+-rw-------   1 simmigyeong  staff   276  4 10 19:55 nohup.out
+-rw-r--r--   1 simmigyeong  staff    49  4 10 19:18 settings.gradle
+drwxr-xr-x   4 simmigyeong  staff   128  4 10 19:18 src
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % tail -f nohup.out
+Error: Unable to access jarfile /home/ec2-user/testApp/git/
+Error: Unable to access jarfile /home/ec2-user/testApp/git/
+Error: Unable to access jarfile /home/ec2-user/testApp/git/
+Error: Unable to access jarfile /Users/simmigyeong/.ssh/testApp/git/SchedulerAppTest_Springboot
+^C
+simmigyeong@simmigyeong-ui-MacBookPro SchedulerAppTest_Springboot % cd ~/.ssh
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % ls
+SpringBoot.pem	config		known_hosts	testApp
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % ls -al
+total 24
+drwx------    6 simmigyeong  staff   192  4 10 19:16 .
+drwxr-xr-x+ 111 simmigyeong  staff  3552  4 10 19:55 ..
+-rw-------@   1 simmigyeong  staff  1704  4 10 17:34 SpringBoot.pem
+-rw-r--r--    1 simmigyeong  staff   114  4 10 17:45 config
+-rw-r--r--    1 simmigyeong  staff   401  4 10 17:40 known_hosts
+drwxr-xr-x    3 simmigyeong  staff    96  4 10 19:17 testApp
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % vi config    
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % ssh SpringBoot                
+Last login: Sun Apr 10 08:45:25 2022 from 210.94.171.161
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+[ec2-user@ip-172-31-24-204 ~]$ ls
+[ec2-user@ip-172-31-24-204 ~]$ mkdir app
+[ec2-user@ip-172-31-24-204 ~]$ mkdir app/git
+[ec2-user@ip-172-31-24-204 ~]$ cd ~/app/git
+[ec2-user@ip-172-31-24-204 git]$ git clone https://github.com/Sim-mi-gyeong/SchedulerApp.git
+'SchedulerApp'에 복제합니다...
+Username for 'https://github.com': Sim-mi-gyeong
+Password for 'https://Sim-mi-gyeong@github.com': 
+remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+fatal: Authentication failed for 'https://github.com/Sim-mi-gyeong/SchedulerApp.git/'
+[ec2-user@ip-172-31-24-204 git]$ git clone https://github.com/Sim-mi-gyeong/SchedulerApp.git
+'SchedulerApp'에 복제합니다...
+Username for 'https://github.com': Sim-mi-gyeong
+Password for 'https://Sim-mi-gyeong@github.com': 
+fatal: unable to access 'https://github.com/Sim-mi-gyeong/SchedulerApp.git/': The requested URL returned error: 400
+[ec2-user@ip-172-31-24-204 git]$ git clone https://github.com/Sim-mi-gyeong/SchedulerApp.git
+'SchedulerApp'에 복제합니다...
+Username for 'https://github.com': Sim-mi-gyeong
+Password for 'https://Sim-mi-gyeong@github.com': 
+remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+fatal: Authentication failed for 'https://github.com/Sim-mi-gyeong/SchedulerApp.git/'
+[ec2-user@ip-172-31-24-204 git]$ git clone https://github.com/Sim-mi-gyeong/SchedulerApp.git
+'SchedulerApp'에 복제합니다...
+remote: Enumerating objects: 41, done.
+remote: Counting objects: 100% (41/41), done.
+remote: Compressing objects: 100% (27/27), done.
+remote: Total 41 (delta 5), reused 37 (delta 4), pack-reused 0
+오브젝트를 받는 중: 100% (41/41), 61.81 KiB | 30.91 MiB/s, 완료.
+델타를 알아내는 중: 100% (5/5), 완료.
+[ec2-user@ip-172-31-24-204 git]$ cd SchedulerApp
+[ec2-user@ip-172-31-24-204 SchedulerApp]$ ls
+README.md  SchedulerAppTest_Springboot
+[ec2-user@ip-172-31-24-204 SchedulerApp]$ cd SchedulerAppTest_Springboot
+[ec2-user@ip-172-31-24-204 SchedulerAppTest_Springboot]$ ls -al
+합계 24
+drwxrwxr-x 4 ec2-user ec2-user  126  4월 10 11:14 .
+drwxrwxr-x 4 ec2-user ec2-user   88  4월 10 11:14 ..
+-rw-rw-r-- 1 ec2-user ec2-user  444  4월 10 11:14 .gitignore
+-rw-rw-r-- 1 ec2-user ec2-user  991  4월 10 11:14 build.gradle
+drwxrwxr-x 3 ec2-user ec2-user   21  4월 10 11:14 gradle
+-rwxrwxr-x 1 ec2-user ec2-user 8070  4월 10 11:14 gradlew
+-rw-rw-r-- 1 ec2-user ec2-user 2674  4월 10 11:14 gradlew.bat
+-rw-rw-r-- 1 ec2-user ec2-user   49  4월 10 11:14 settings.gradle
+drwxrwxr-x 4 ec2-user ec2-user   30  4월 10 11:14 src
+[ec2-user@ip-172-31-24-204 SchedulerAppTest_Springboot]$ cd ~app/git
+-bash: cd: ~app/git: No such file or directory
+[ec2-user@ip-172-31-24-204 SchedulerAppTest_Springboot]$ pwd
+/home/ec2-user/app/git/SchedulerApp/SchedulerAppTest_Springboot
+[ec2-user@ip-172-31-24-204 SchedulerAppTest_Springboot]$ cd /home/ec2-user/app/git
+[ec2-user@ip-172-31-24-204 git]$ vi deploy.sh
+[ec2-user@ip-172-31-24-204 git]$ chmod 755 ./deploy.sh
+[ec2-user@ip-172-31-24-204 git]$ ./deploy.sh
+> Git Pull
+이미 업데이트 상태입니다.
+> 프로젝트 Build 시작
+Downloading https://services.gradle.org/distributions/gradle-7.4.1-bin.zip
+...........10%...........20%...........30%...........40%...........50%...........60%...........70%...........80%...........90%...........100%
+
+Welcome to Gradle 7.4.1!
+
+Here are the highlights of this release:
+ - Aggregated test and JaCoCo reports
+ - Marking additional test source directories as tests in IntelliJ
+ - Support for Adoptium JDKs in Java toolchains
+
+For more details see https://docs.gradle.org/7.4.1/release-notes.html
+
+Starting a Gradle Daemon (subsequent builds will be faster)
+
+> Task :test
+2022-04-10 11:21:23.796  INFO 23828 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-10 11:21:23.808  INFO 23828 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-04-10 11:21:23.839  INFO 23828 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+
+BUILD SUCCESSFUL in 1m 57s
+7 actionable tasks: 7 executed
+> Build 파일 복사
+> 현재 구동중인 애플리케이션 pid 확인
+
+> 현재 구동중인 애플리케이션이 없으므로 종료하지 않습니다.
+> 새 어플리케이션 배포
+> JAR Name: SchedulerAppTest_Springboot-0.0.1-SNAPSHOT20220410111957.jar
+[ec2-user@ip-172-31-24-204 git]$ nohup: appending output to `nohup.out'
+
+[ec2-user@ip-172-31-24-204 git]$ cd SchedulerApp/SchedulerAppTest_Springboot
+[ec2-user@ip-172-31-24-204 SchedulerAppTest_Springboot]$ ls
+build  build.gradle  gradle  gradlew  gradlew.bat  nohup.out  settings.gradle  src
+[ec2-user@ip-172-31-24-204 SchedulerAppTest_Springboot]$ cd ..
+[ec2-user@ip-172-31-24-204 SchedulerApp]$ ls -al
+합계 43216
+drwxrwxr-x 4 ec2-user ec2-user      230  4월 10 11:21 .
+drwxrwxr-x 3 ec2-user ec2-user       43  4월 10 11:19 ..
+drwxrwxr-x 8 ec2-user ec2-user      198  4월 10 11:19 .git
+-rw-rw-r-- 1 ec2-user ec2-user      278  4월 10 11:14 .gitignore
+-rw-rw-r-- 1 ec2-user ec2-user       14  4월 10 11:14 README.md
+drwxrwxr-x 6 ec2-user ec2-user      171  4월 10 11:21 SchedulerAppTest_Springboot
+-rw-rw-r-- 1 ec2-user ec2-user     3116  4월 10 11:21 SchedulerAppTest_Springboot-0.0.1-SNAPSHOT20220410111957-plain.jar
+-rw-rw-r-- 1 ec2-user ec2-user 44237358  4월 10 11:21 SchedulerAppTest_Springboot-0.0.1-SNAPSHOT20220410111957.jar
+[ec2-user@ip-172-31-24-204 SchedulerApp]$ cd SchedulerAppTest_Springboot
+[ec2-user@ip-172-31-24-204 SchedulerAppTest_Springboot]$ tail -f nohup.out
+Error: Unable to access jarfile /home/ec2-user/app/git/SchedulerAppTest_Springboot-0.0.1-SNAPSHOT20220410111957.jar
+
+^[[A
+cd ..
+^C
+[ec2-user@ip-172-31-24-204 SchedulerAppTest_Springboot]$ cd ..
+[ec2-user@ip-172-31-24-204 SchedulerApp]$ ps -ef | grep SchedulerAppTest_Springboot
+ec2-user 26766 18570  0 11:26 pts/1    00:00:00 grep --color=auto SchedulerAppTest_Springboot
+[ec2-user@ip-172-31-24-204 SchedulerApp]$ tail -f nohup.out
+tail: cannot open `nohup.out' for reading: No such file or directory
+tail: 파일이 남아 있지 않습니다
+[ec2-user@ip-172-31-24-204 SchedulerApp]$ cd SchedulerAppTest_Springboot
+[ec2-user@ip-172-31-24-204 SchedulerAppTest_Springboot]$ tail -f nohup.out
+Error: Unable to access jarfile /home/ec2-user/app/git/SchedulerAppTest_Springboot-0.0.1-SNAPSHOT20220410111957.jar
+ 
+^C
+[ec2-user@ip-172-31-24-204 SchedulerAppTest_Springboot]$ ls
+build  build.gradle  gradle  gradlew  gradlew.bat  nohup.out  settings.gradle  src
+[ec2-user@ip-172-31-24-204 SchedulerAppTest_Springboot]$ cd ..
+[ec2-user@ip-172-31-24-204 SchedulerApp]$ ls
+README.md                    SchedulerAppTest_Springboot-0.0.1-SNAPSHOT20220410111957-plain.jar
+SchedulerAppTest_Springboot  SchedulerAppTest_Springboot-0.0.1-SNAPSHOT20220410111957.jar
+[ec2-user@ip-172-31-24-204 SchedulerApp]$ ls
+README.md                    SchedulerAppTest_Springboot-0.0.1-SNAPSHOT20220410111957-plain.jar
+SchedulerAppTest_Springboot  SchedulerAppTest_Springboot-0.0.1-SNAPSHOT20220410111957.jar
+[ec2-user@ip-172-31-24-204 SchedulerApp]$ cd ..
+[ec2-user@ip-172-31-24-204 git]$ la
+-bash: la: command not found
+[ec2-user@ip-172-31-24-204 git]$ ls
+SchedulerApp  deploy.sh
+[ec2-user@ip-172-31-24-204 git]$ vi deploy.sh
+
+
+echo "> 프로젝트 Build 시작"
+
+./gradlew build
+
+echo "> Build 파일 복사"
+
+cp ./build/libs/*.jar $REPOSITORY/SchedulerApp
+
+echo "> 현재 구동중인 애플리케이션 pid 확인"
+
+CURRENT_PID=$(pgrep -f SchedulerApp/SchedulerAppTest_Springboot)
+
+echo "$CURRENT_PID"
+
+if [ -z $CURRENT_PID ]; then
+    echo "> 현재 구동중인 애플리케이션이 없으므로 종료하지 않습니다."
+else
+    echo "> kill -15 $CURRENT_PID"
+    kill -15 $CURRENT_PID
+    sleep 5
+fi
+
+echo "> 새 어플리케이션 배포"
+
+JAR_NAME=$(ls $REPOSITORY/SchedulerApp |grep 'SchedulerAppTest_Springbooclient_loop: send disconnect: Broken pipe
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % ls -al                                                     
+total 24
+drwx------    6 simmigyeong  staff   192  4 10 20:07 .
+                                                                                                                               B                                                                                                                                ^                                                                                                                                [  rw-r--r--    1 simmigyeong  staff   401  4 10 17:40 known_hosts
+:wq!                                                                                                                           B                                                                                                        
+^[[Ossh: connect to host 3.84.71.239 port 22: Operation timed out                                                              B simmigyeong@simmigyeong-ui-MacBookPro .ssh % 
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % 
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % 
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % 
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % :wq!
+zsh: command not found: :wq!
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % 
+simmigyeong@simmigyeong-ui-MacBookPro .ssh % 
