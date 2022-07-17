@@ -13,11 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/")
 public class ApiController {
 
-    @GetMapping("/")
-    public String home() {
-        return "index";
-    }
-
     @GetMapping(value = "test", produces = MediaType.TEXT_PLAIN_VALUE)
     @ApiOperation(value = "Test Sample")   // API 에 대한 설명 - value : 태
     public Object sampleController(@Parameter(hidden=true) @RequestParam String param) {
