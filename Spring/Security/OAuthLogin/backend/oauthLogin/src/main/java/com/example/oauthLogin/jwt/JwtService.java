@@ -16,10 +16,11 @@ import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
+import static com.example.oauthLogin.config.SecretConstant.JWT_SECRET_KEY;
+
 @Service
 public class JwtService {
 
-	private static final String JWT_SECRET_KEY = "";
 	private static final int JWT_EXPIRATION = 1000 * 60 * 60 * 2;      //2시간
 	private static final int REFRESH_EXPIRATION = 1000 * 60 * 60 * 24; //24시간
 
@@ -46,18 +47,17 @@ public class JwtService {
 	}
 
 	public boolean isExpired(String jwt) {
-		// try {
-		// 	Claims claims = Jwts.parser()
-		// 		.setSigningKey(DatatypeConverter.parseBase64Binary(JWT_SECRET_KEY)) //gitignore에 등록된 KEY
-		// 		.parseClaimsJws(jwt)
-		// 		.getBody();
-		// 	claims.getExpiration();
-		// 	return false;
-		// } catch (ExpiredJwtException e) {
-		// 	// 만료된 Jwt 토큰인 경우
-		// 	return true;
-		// }
-		return true;
+		 try {
+		 	Claims claims = Jwts.parser()
+		 		.setSigningKey(DatatypeConverter.parseBase64Binary(JWT_SECRET_KEY)) //gitignore에 등록된 KEY
+		 		.parseClaimsJws(jwt)
+		 		.getBody();
+		 	claims.getExpiration();
+		 	return false;
+		 } catch (ExpiredJwtException e) {
+		 	// 만료된 Jwt 토큰인 경우
+		 	return true;
+		 }
 	}
 
 	public boolean isNotValid(String jwt) {
@@ -73,13 +73,13 @@ public class JwtService {
 		}
 	}
 
-	// Header : ACCESS-TOKEN에서 Jwt 추출
+	// Header : ACCESS-TOKEN 에서 Jwt 추출
 	public String getJwt() {
 		HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
 		return request.getHeader("ACCESS-TOKEN");
 	}
 
-	// Header : REFRESH-TOKEN에서 Jwt 추출
+	// Header : REFRESH-TOKEN 에서 Jwt 추출
 	public String getRefreshToken() {
 		HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
 		return request.getHeader("REFRESH-TOKEN");

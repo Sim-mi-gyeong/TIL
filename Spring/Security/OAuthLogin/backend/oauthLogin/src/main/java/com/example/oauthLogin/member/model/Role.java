@@ -1,4 +1,4 @@
-package com.example.oauthLogin.member;
+package com.example.oauthLogin.member.model;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

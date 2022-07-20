@@ -40,4 +40,8 @@ jasyptKey.txt
 /src/main/java/dnd/studyplanner/config/SecretConstant.java
 
 ### IntelliJ IDEA ###
+application-oauth.properties
 application-aws.properties
+
+application-oauth.yml
+application-dev.yml

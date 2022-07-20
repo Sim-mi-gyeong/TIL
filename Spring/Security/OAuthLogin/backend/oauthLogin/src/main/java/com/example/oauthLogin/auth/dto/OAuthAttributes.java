@@ -2,8 +2,8 @@ package com.example.oauthLogin.auth.dto;
 
 import com.example.oauthLogin.auth.AuthProvider;
 import com.example.oauthLogin.exception.OAuth2AuthenticationProcessingException;
-import com.example.oauthLogin.member.Member;
-import com.example.oauthLogin.member.Role;
+import com.example.oauthLogin.member.model.Member;
+import com.example.oauthLogin.member.model.Role;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -35,19 +35,45 @@ public class OAuthAttributes {
     public static OAuthAttributes of(String registrationId, String userNameAttributeName,
                                      Map<String, Object> attributes) throws OAuth2AuthenticationProcessingException {
 
-        switch (AuthProvider.valueOf(registrationId.toLowerCase())) {
-            case naver:
-                return ofNaver(userNameAttributeName, attributes);
-            case kakao:
-                return ofKakao("id", attributes);
-            case google:
-                return ofGoogle(userNameAttributeName, attributes);
-            default:
-                throw new OAuth2AuthenticationProcessingException("Login with " + registrationId + " is not supported yet.");
+//        switch (AuthProvider.valueOf(registrationId.toLowerCase())) {
+        System.out.println("registrationId : " + registrationId);
+        System.out.println("userNameAttributeName : " + userNameAttributeName);
+        System.out.println("attributes : " + attributes);
+//        switch (registrationId) {
+//            case "naver":
+//                System.out.println("naver 로그인 시도 - userNameAttributeName : " + (userNameAttributeName));
+//                System.out.println("naver 로그인 시도 - attributes : " + (attributes));
+////                return ofNaver(userNameAttributeName, attributes);
+//                return ofNaver(userNameAttributeName, attributes);
+//            case "kakao":
+//                System.out.println("kakao 로그인 시도 - userNameAttributeName : " + (userNameAttributeName));
+//                System.out.println("kakao 로그인 시도 - attributes : " + (attributes));
+//                return ofKakao("id", attributes);
+//            case "google":
+//                System.out.println("google 로그인 시도 - userNameAttributeName : " + (userNameAttributeName));
+//                System.out.println("google 로그인 시도 - attributes : " + (attributes));
+//                return ofGoogle("sub", attributes);
+//            default:
+//                throw new OAuth2AuthenticationProcessingException("Login with " + registrationId + " is not supported yet.");
+//        }
+        if ("naver".equals(registrationId)) {
+            System.out.println("naver 로그인 시도 - userNameAttributeName : " + (userNameAttributeName));
+            System.out.println("naver 로그인 시도 - attributes : " + (attributes));
+//                return ofNaver(userNameAttributeName, attributes);
+            return ofNaver("id", attributes);
+        } else if ("kakao".equals(registrationId)) {
+            System.out.println("kakao 로그인 시도 - userNameAttributeName : " + (userNameAttributeName));
+            System.out.println("kakao 로그인 시도 - attributes : " + (attributes));
+            return ofKakao("id", attributes);
+        } else {
+            System.out.println("google 로그인 시도 - userNameAttributeName : " + (userNameAttributeName));
+            System.out.println("google 로그인 시도 - attributes : " + (attributes));
+            return ofGoogle("sub", attributes);
         }
     }
 
     private static OAuthAttributes ofGoogle(String userNameAttributeName, Map<String, Object> attributes) {
+
         return OAuthAttributes.builder()
                 .name((String)attributes.get("name"))
                 .email((String)attributes.get("email"))

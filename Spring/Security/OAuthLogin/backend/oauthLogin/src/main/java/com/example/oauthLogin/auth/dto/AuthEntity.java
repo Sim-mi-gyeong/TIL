@@ -1,7 +1,6 @@
 package com.example.oauthLogin.auth.dto;
 
 
-import com.example.oauthLogin.member.Role;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
