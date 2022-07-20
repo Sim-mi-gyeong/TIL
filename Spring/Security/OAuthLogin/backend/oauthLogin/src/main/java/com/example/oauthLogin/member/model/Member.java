@@ -35,8 +35,5 @@ public class Member {
     public String getRoleKey() {
         return this.role.getKey();
     }
-
-    public void update(String name) {
-        this.name = name;
-    }
+    
 }

@@ -26,7 +26,7 @@ public class JasyptConfig {
         config.setSaltGeneratorClassName("org.jasypt.salt.RandomSaltGenerator"); // salt 생성 클래스
         config.setStringOutputType("base64"); //인코딩 방식
         encryptor.setConfig(config);
-
+/*
         String tmpEncodeNaver = encryptor.encrypt("http://localhost:8080/login/ouath2/code/naver");
         System.out.println("Naver Callback url Encoding : " + tmpEncodeNaver);
         String tmpDecodeNaver = encryptor.decrypt(tmpEncodeNaver);
@@ -36,6 +36,7 @@ public class JasyptConfig {
         System.out.println("Naver Callback url Encoding : " + tmpEncodeGoogle);
         String tmpDecodeGoogle = encryptor.decrypt(tmpEncodeGoogle);
         System.out.println("Naver Callback url Decoding : " + tmpDecodeGoogle);
+ */
 
         return encryptor;
     }

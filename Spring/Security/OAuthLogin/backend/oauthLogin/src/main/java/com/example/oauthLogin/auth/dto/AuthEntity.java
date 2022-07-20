@@ -33,5 +33,4 @@ public class AuthEntity {
         this.refreshToken = refreshToken;
     }
 
-
 }

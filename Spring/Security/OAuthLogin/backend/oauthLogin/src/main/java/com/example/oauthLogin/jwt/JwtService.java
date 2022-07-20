@@ -21,8 +21,8 @@ import static com.example.oauthLogin.config.SecretConstant.JWT_SECRET_KEY;
 @Service
 public class JwtService {
 
-	private static final int JWT_EXPIRATION = 1000 * 60 * 60 * 2;      //2시간
-	private static final int REFRESH_EXPIRATION = 1000 * 60 * 60 * 24; //24시간
+	private static final int JWT_EXPIRATION = 1000 * 60 * 60 * 2;      // 2시간
+	private static final int REFRESH_EXPIRATION = 1000 * 60 * 60 * 24; // 24시간
 
 	public String createJwt(Long memberId) {
 		Date now = new Date();
@@ -30,8 +30,8 @@ public class JwtService {
 			.setHeaderParam("type", "jwt")
 			.claim("memberId", memberId) //memberId로 저장
 			.setIssuedAt(now)
-			.setExpiration(new Date(System.currentTimeMillis() + JWT_EXPIRATION)) //
-			.signWith(SignatureAlgorithm.HS256, JWT_SECRET_KEY) // gitignore에 등록된 KEY
+			.setExpiration(new Date(System.currentTimeMillis() + JWT_EXPIRATION))
+			.signWith(SignatureAlgorithm.HS256, JWT_SECRET_KEY) // gitignore 에 등록된 KEY
 			.compact();
 	}
 
@@ -42,14 +42,14 @@ public class JwtService {
 			.claim("memberId", memberId)
 			.setIssuedAt(now)
 			.setExpiration(new Date(System.currentTimeMillis() + REFRESH_EXPIRATION))
-			.signWith(SignatureAlgorithm.HS256, JWT_SECRET_KEY) //gitignore에 등록된 KEY
+			.signWith(SignatureAlgorithm.HS256, JWT_SECRET_KEY) //gitignore 에 등록된 KEY
 			.compact();
 	}
 
 	public boolean isExpired(String jwt) {
 		 try {
 		 	Claims claims = Jwts.parser()
-		 		.setSigningKey(DatatypeConverter.parseBase64Binary(JWT_SECRET_KEY)) //gitignore에 등록된 KEY
+		 		.setSigningKey(DatatypeConverter.parseBase64Binary(JWT_SECRET_KEY)) // gitignore 에 등록된 KEY
 		 		.parseClaimsJws(jwt)
 		 		.getBody();
 		 	claims.getExpiration();
@@ -63,7 +63,7 @@ public class JwtService {
 	public boolean isNotValid(String jwt) {
 		try {
 			Claims claims = Jwts.parser()
-				.setSigningKey(DatatypeConverter.parseBase64Binary(JWT_SECRET_KEY)) //gitignore에 등록된 KEY
+				.setSigningKey(DatatypeConverter.parseBase64Binary(JWT_SECRET_KEY)) // gitignore 에 등록된 KEY
 				.parseClaimsJws(jwt)
 				.getBody();
 			claims.getExpiration();
@@ -96,7 +96,7 @@ public class JwtService {
 			.setSigningKey(JWT_SECRET_KEY)
 			.parseClaimsJws(accessToken);
 
-		return claims.getBody().get("memberId", Long.class); //memberId 추출
+		return claims.getBody().get("memberId", Long.class); // memberId 추출
 	}
 
 }
