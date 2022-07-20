@@ -1,7 +1,9 @@
 package com.example.oauthLogin.auth;
 
 import com.example.oauthLogin.auth.dto.AuthRepository;
+import com.example.oauthLogin.auth.dto.OAuthAttributes;
 import com.example.oauthLogin.jwt.JwtService;
+import com.example.oauthLogin.member.Member;
 import com.example.oauthLogin.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,4 +26,15 @@ public class OAuthService implements OAuth2UserService<OAuth2UserRequest, OAuth2
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
         return null;
     }
+
+    // 이미 저장된 정보에 대해 Update 처리
+    private Member saveOrUpdate(OAuthAttributes attributes) {
+
+        Member member = memberRepository.finaByEmail(attributes.getEmail())
+            .orElse(attributes.toEntity());
+
+        return memberRepository.save(member);
+    }
+
+
 }
