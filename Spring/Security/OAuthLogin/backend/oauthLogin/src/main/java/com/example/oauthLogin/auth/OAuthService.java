@@ -35,7 +35,6 @@ public class OAuthService implements OAuth2UserService<OAuth2UserRequest, OAuth2
      * @return
      * @throws OAuth2AuthenticationException
      */
-    @SneakyThrows
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
 

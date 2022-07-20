@@ -1,4 +1,4 @@
-package com.example.oauthLogin.auth;
+package com.example.oauthLogin.auth.dto;
 
 public enum AuthProvider {
 	kakao,

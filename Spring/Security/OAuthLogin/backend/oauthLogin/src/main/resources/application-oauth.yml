@@ -18,7 +18,7 @@ spring:
           google:
             client-id: 276112159943-7rmjevpmkv4c73eo8bj1rplp9d165qa0.apps.googleusercontent.com
             client-secret: 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
-            #            redirect-uri: http://localhost:8080/login/oauth2/code/google
+            #  redirect-uri: http://localhost:8080/login/oauth2/code/google
             redirect-uri: ENC(TuQYOUws/3LeAck9xtJIewt6lP9ODiQNIXbWWw6NjX+attIfk5vfk4+2tm7l9g2ytojHgSyeC0c=)
             authorization-grant-type: authorization_code
             client-authentication-method: POST
@@ -31,7 +31,7 @@ spring:
             client-secret: XzzUMcOfBn
             authorization-grant-type: authorization_code
             client-authentication-method: POST
-            #            redirect-uri: "http://localhost:8080/login/ouath2/code/naver"
+            # redirect-uri: "http://localhost:8080/login/ouath2/code/naver"
             redirect-uri: ENC(pxIfJspoCsomMnHOY+2ilDrN++blTqA46S+gn+60bxEog2HD3sqgyO9bSsOkCENvItxcIsk2nRo=)
             client-name: Naver
             scope:

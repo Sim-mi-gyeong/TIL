@@ -1,7 +1,5 @@
 package com.example.oauthLogin.auth.dto;
 
-import com.example.oauthLogin.auth.AuthProvider;
-import com.example.oauthLogin.exception.OAuth2AuthenticationProcessingException;
 import com.example.oauthLogin.member.model.Member;
 import com.example.oauthLogin.member.model.Role;
 import lombok.AccessLevel;
@@ -33,19 +31,15 @@ public class OAuthAttributes {
     }
 
     public static OAuthAttributes of(String registrationId, String userNameAttributeName,
-                                     Map<String, Object> attributes) throws OAuth2AuthenticationProcessingException {
+                                     Map<String, Object> attributes) {
 
         switch (AuthProvider.valueOf(registrationId.toLowerCase())) {
             case naver:
                 return ofNaver(userNameAttributeName, attributes);
             case kakao:
                 return ofKakao("id", attributes);
-            case google:
-                return ofGoogle("sub", attributes);
-            default:
-                throw new OAuth2AuthenticationProcessingException("Login with " + registrationId + " is not supported yet.");
         }
-
+        return ofGoogle("sub", attributes);
     }
 
     private static OAuthAttributes ofGoogle(String userNameAttributeName, Map<String, Object> attributes) {
