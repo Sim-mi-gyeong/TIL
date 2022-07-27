@@ -1,4 +1,4 @@
-package com.example.tobySpring.user.domain;
+package user_1_5_1.domain;
 
 public class User {
 

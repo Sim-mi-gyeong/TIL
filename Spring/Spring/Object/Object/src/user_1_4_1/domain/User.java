@@ -1,4 +1,4 @@
-package user_1_3_3.domain;
+package user_1_4_1.domain;
 
 public class User {
 
