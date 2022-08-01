@@ -1,4 +1,4 @@
-package com.example.tobySpring.user_1_6_2.dao;
+package com.example.tobySpring.user_1_6_4.user.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
