@@ -1,4 +1,4 @@
-package Chapter1.After;
+package Chapter1.AfterUp;
 
 /**
  * 매표소에서 초대장을 티켓으로 교환해 주거나, 티켓을 판매하는 역할 수행하는 판매원 클래스 - 자신이 일하는 매표소를 알고 있어야 함
@@ -22,8 +22,15 @@ public class TicketSeller {
 	// 	return ticketOffice;
 	// }
 
-	public void sellTo(Audience audience) {   // TicketSeller 가 Audience 인터페이스에만 의존하도록 수정
-		ticketOffice.plusAmount(audience.buy(ticketOffice.getTicket()));   // audience 가, ticketOffice 에 존재하는 티켓을 구매하여 -> 그 금액민큼 ticketOffice 에 추가
+	/**
+	 * TicketSeller 가 TicketOffice 의 자율권을 침해하는 상황
+	 * - TicketSeller 는 TicketOffice 에 있는 Ticket 을 마음대로 꺼내어 -> 자기 멋대로 Audience 에게 팔고 -> Audience 에게 받은 돈을 마음대로 TicketOffice 에 넣음
+	 */
+	// public void sellTo(Audience audience) {
+	// 	ticketOffice.plusAmount(audience.buy(ticketOffice.getTicket()));
+	// }
+	public void sellTo(Audience audience) {
+		ticketOffice.sellTicketTo(audience);
 	}
 
 }

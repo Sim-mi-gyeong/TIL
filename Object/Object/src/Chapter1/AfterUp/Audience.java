@@ -1,4 +1,4 @@
-package Chapter1.After;
+package Chapter1.AfterUp;
 
 /**
  * 관람객 구현 클래스
@@ -21,14 +21,8 @@ public class Audience {
 	 */
 
 	public Long buy(Ticket ticket) {
-		if (bag.hasInvitation()) {   // 자신의 가방 안에 초대장이 있는지 스스로 확인
-			bag.setTicket(ticket);
-			return 0L;
-		} else {
-			bag.setTicket(ticket);
-			bag.minusAmount(ticket.getFee());
-			return ticket.getFee();   // 이 금액만큼 매표소의 plusAmount()
-		}
+		// Bag 의 구현 캡슐화에 따른 Audience 를 Bag 의 구현이 아닌, 인터페이스에만 의존하도록 수정
+		return bag.hold(ticket);
 	}
 
 }
