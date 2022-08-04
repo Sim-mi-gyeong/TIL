@@ -12,6 +12,13 @@ public class Movie {
 	private Money fee;
 	private DiscountPolicy discountPolicy;
 
+	/**
+	 * 합성을 통한 실행 시점에 할인 정책 변경이 가능한 메서드
+	 */
+	public void changeDiscountPolicy(DiscountPolicy discountPolicy) {
+		this.discountPolicy = discountPolicy;
+	}
+
 	public Movie(String title, Duration runningTime, Money fee, DiscountPolicy discountPolicy) {
 		this.title = title;
 		this.runningTime = runningTime;

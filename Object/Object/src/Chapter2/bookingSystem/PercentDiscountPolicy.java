@@ -1,6 +1,6 @@
 package Chapter2.bookingSystem;
 
-public class PercentDiscountPolicy extends DiscountPolicy {
+public class PercentDiscountPolicy extends DefaultDiscountPolicy {
 
 	private double percent;
 
