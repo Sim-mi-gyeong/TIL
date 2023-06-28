@@ -1,3 +1,3 @@
 # TIL
 
-🌱 Spring 과 Android 를 열심히 공부하자 ! 🌱
+🌱 Java 와 Spring 을 열심히 공부하자 ! 🌱
